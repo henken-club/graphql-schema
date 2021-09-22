@@ -8,3 +8,6 @@ yarn.lock
 # VSCode
 .vscode/*
 !.vscode/extensions.json
+
+# Documents
+docs/
