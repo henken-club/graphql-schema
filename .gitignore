@@ -1,0 +1,10 @@
+# Dependencies
+node_modules/
+yarn.lock
+
+# OS
+.DS_Store
+
+# VSCode
+.vscode/*
+!.vscode/extensions.json

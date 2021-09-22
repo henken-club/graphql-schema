@@ -1,0 +1,53 @@
+union HenkenThing = Book | BookSeries
+
+type Henken implements Node {
+  id: ID!
+
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  postedBy: User!
+  postedTo: User!
+
+  for: HenkenThing!
+
+  answer: Answer
+}
+
+type HenkenEdge implements Edge {
+  edge: String!
+  node: Henken!
+}
+
+type HenkenConnection implements Connection {
+  edges: [HenkenEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+input HenkenOrder {
+  order: OrderDirection!
+  field: HenkenOrderField!
+}
+
+enum HenkenOrderField {
+  CREATED_AT
+  UPDATED_AT
+}
+
+extend type Query {
+  henken(id: ID!): Henken!
+  findHenken(id: ID!): FindHenkenPayload!
+}
+
+type FindHenkenPayload {
+  henken: Henken!
+}
+
+extend type Mutation {
+  createHenken: CreateHenkenPayload!
+}
+
+type CreateHenkenPayload {
+  henken: Henken!
+}

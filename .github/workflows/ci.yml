@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+
+jobs:
+  codegen:
+    name: codegen
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: npm
+      - uses: bahmutov/npm-install@v1
+      - run: npm run codegen
+      - run: test -z "$(git diff --name-only | grep schema.graphql)" ; exit $?
+
+  prettier:
+    name: prettier
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: npm
+      - uses: bahmutov/npm-install@v1
+      - run: npm run lint:prettier

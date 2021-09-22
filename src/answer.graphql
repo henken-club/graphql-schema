@@ -1,0 +1,42 @@
+type Answer implements Node {
+  id: ID!
+  henken: Henken!
+}
+
+type AnswerEdge implements Edge {
+  edge: String!
+  node: Answer!
+}
+
+type AnswerConnection implements Connection {
+  edges: [AnswerEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+input AnswerOrder {
+  order: OrderDirection!
+  field: AnswerOrderField!
+}
+
+enum AnswerOrderField {
+  CREATED_AT
+  UPDATED_AT
+}
+
+extend type Query {
+  answer(id: ID!): Answer!
+  findAnswer(id: ID!): FindAnswerPayload!
+}
+
+type FindAnswerPayload {
+  answer: Answer!
+}
+
+extend type Mutation {
+  createAnswer: CreateAnswerPayload!
+}
+
+type CreateAnswerPayload {
+  answer: Answer!
+}

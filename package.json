@@ -1,0 +1,18 @@
+{
+  "name": "@henken.club/graphql-schema",
+  "private": true,
+  "scripts": {
+    "codegen": "gql-gen",
+    "lint": "run-s -cn lint:*",
+    "lint:prettier": "prettier **/*.{json,yml,graphql} --write",
+    "fmt": "run-s -cn fmt:*",
+    "fmt:prettier": "npm run lint -- --write"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^2.2.0",
+    "@graphql-codegen/schema-ast": "^2.2.0",
+    "graphql": "^15.6.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.4.1"
+  }
+}

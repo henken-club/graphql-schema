@@ -1,0 +1,229 @@
+type Answer implements Node {
+  henken: Henken!
+  id: ID!
+}
+
+type AnswerConnection implements Connection {
+  edges: [AnswerEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type AnswerEdge implements Edge {
+  edge: String!
+  node: Answer!
+}
+
+input AnswerOrder {
+  field: AnswerOrderField!
+  order: OrderDirection!
+}
+
+enum AnswerOrderField {
+  CREATED_AT
+  UPDATED_AT
+}
+
+type Author implements Node {
+  books(after: String, before: String, first: Int, last: Int, order: BookOrder = {field: TITLE, order: ASC}): BookConnection!
+  id: ID!
+  name: String!
+}
+
+type AuthorConnection implements Connection {
+  edges: [AuthorEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type AuthorEdge implements Edge {
+  edge: String!
+  node: Author!
+}
+
+type Book implements Node {
+  authors: [Author!]!
+  cover: String
+  id: ID!
+  isbn: String
+  title: String!
+}
+
+type BookConnection implements Connection {
+  edges: [BookEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type BookEdge implements Edge {
+  edge: String!
+  node: Book!
+}
+
+input BookOrder {
+  field: BookOrderField!
+  order: OrderDirection!
+}
+
+enum BookOrderField {
+  TITLE
+}
+
+type BookSeries implements Node {
+  books: BookConnection!
+  id: ID!
+  title: String!
+}
+
+type BookSeriesConnection implements Connection {
+  edges: [BookSeriesEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type BookSeriesEdge implements Edge {
+  edge: String!
+  node: BookSeries!
+}
+
+interface Connection {
+  edges: [Edge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type CreateAnswerPayload {
+  answer: Answer!
+}
+
+type CreateHenkenPayload {
+  henken: Henken!
+}
+
+scalar DateTime
+
+interface Edge {
+  edge: String!
+  node: Node!
+}
+
+type FindAnswerPayload {
+  answer: Answer!
+}
+
+type FindAuthorPayload {
+  author: Author!
+}
+
+type FindBookPayload {
+  book: Book!
+}
+
+type FindBookSeriesPayload {
+  series: BookSeries
+}
+
+type FindHenkenPayload {
+  henken: Henken!
+}
+
+type FindUserPayload {
+  user: User!
+}
+
+input FollowingOrder {
+  order: OrderDirection!
+}
+
+type Henken implements Node {
+  answer: Answer
+  createdAt: DateTime!
+  for: HenkenThing!
+  id: ID!
+  postedBy: User!
+  postedTo: User!
+  updatedAt: DateTime!
+}
+
+type HenkenConnection implements Connection {
+  edges: [HenkenEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type HenkenEdge implements Edge {
+  edge: String!
+  node: Henken!
+}
+
+input HenkenOrder {
+  field: HenkenOrderField!
+  order: OrderDirection!
+}
+
+enum HenkenOrderField {
+  CREATED_AT
+  UPDATED_AT
+}
+
+union HenkenThing = Book | BookSeries
+
+type Mutation {
+  createAnswer: CreateAnswerPayload!
+  createHenken: CreateHenkenPayload!
+}
+
+interface Node {
+  id: ID!
+}
+
+enum OrderDirection {
+  ASC
+  DESC
+}
+
+type PageInfo {
+  endCursor: String
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+}
+
+type Query {
+  answer(id: ID!): Answer!
+  author(id: ID!): Author!
+  book(id: ID!): Book!
+  bookSeries(id: ID!): BookSeries!
+  findAnswer(id: ID!): FindAnswerPayload!
+  findAuthor(id: ID!): FindAuthorPayload!
+  findBook(id: ID!): FindBookPayload!
+  findBookSeries(id: ID!): FindBookSeriesPayload!
+  findHenken(id: ID!): FindHenkenPayload!
+  findUser(id: ID!): FindUserPayload!
+  henken(id: ID!): Henken!
+  user(id: ID!): User!
+  viewer: User
+}
+
+type User implements Node {
+  alias: String!
+  displayName: String!
+  followees(after: String, before: String, first: Int, last: Int, order: FollowingOrder = {order: DESC}): UserConnection!
+  followers(after: String, before: String, first: Int, last: Int, order: FollowingOrder = {order: DESC}): UserConnection!
+  id: ID!
+  postedAnswers(after: String, before: String, first: Int, last: Int, order: AnswerOrder = {field: CREATED_AT, order: DESC}): AnswerConnection!
+  postedHenkens(after: String, before: String, first: Int, last: Int, order: HenkenOrder = {field: CREATED_AT, order: DESC}): HenkenConnection!
+  recievedAnswers(after: String, before: String, first: Int, last: Int, order: AnswerOrder = {field: CREATED_AT, order: DESC}): AnswerConnection!
+  recievedHenkens(after: String, before: String, first: Int, last: Int, order: HenkenOrder = {field: CREATED_AT, order: DESC}): HenkenConnection!
+}
+
+type UserConnection implements Connection {
+  edges: [UserEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type UserEdge implements Edge {
+  edge: String!
+  node: User!
+}

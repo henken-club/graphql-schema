@@ -1,0 +1,96 @@
+type Book implements Node {
+  id: ID!
+
+  title: String!
+
+  isbn: String
+  cover: String
+
+  authors: [Author!]!
+}
+
+type BookEdge implements Edge {
+  edge: String!
+  node: Book!
+}
+
+type BookConnection implements Connection {
+  edges: [BookEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+input BookOrder {
+  order: OrderDirection!
+  field: BookOrderField!
+}
+
+enum BookOrderField {
+  TITLE
+}
+
+type BookSeries implements Node {
+  id: ID!
+
+  title: String!
+
+  books: BookConnection!
+}
+
+type BookSeriesEdge implements Edge {
+  edge: String!
+  node: BookSeries!
+}
+
+type BookSeriesConnection implements Connection {
+  edges: [BookSeriesEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type Author implements Node {
+  id: ID!
+  name: String!
+
+  books(
+    first: Int
+    after: String
+    last: Int
+    before: String
+    order: BookOrder = {order: ASC, field: TITLE}
+  ): BookConnection!
+}
+
+type AuthorEdge implements Edge {
+  edge: String!
+  node: Author!
+}
+
+type AuthorConnection implements Connection {
+  edges: [AuthorEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+extend type Query {
+  book(id: ID!): Book!
+  findBook(id: ID!): FindBookPayload!
+
+  bookSeries(id: ID!): BookSeries!
+  findBookSeries(id: ID!): FindBookSeriesPayload!
+
+  author(id: ID!): Author!
+  findAuthor(id: ID!): FindAuthorPayload!
+}
+
+type FindBookPayload {
+  book: Book!
+}
+
+type FindBookSeriesPayload {
+  series: BookSeries
+}
+
+type FindAuthorPayload {
+  author: Author!
+}
