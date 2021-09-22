@@ -1,0 +1,31 @@
+type Henken implements Node {
+  id: ID!
+}
+
+type HenkenConnection implements Connection {
+  edges: [HenkenEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type HenkenEdge implements Edge {
+  edge: String!
+  node: Henken!
+}
+
+extend type Query {
+  henken(id: ID!): Henken!
+  findHenken(id: ID!): FindHenkenPayload!
+}
+
+type FindHenkenPayload {
+  henken: Henken!
+}
+
+extend type Mutation {
+  createHenken: CreateHenkenPayload!
+}
+
+type CreateHenkenPayload {
+  henken: Henken!
+}

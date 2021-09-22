@@ -1,0 +1,24 @@
+type User implements Node {
+  id: ID!
+}
+
+type UserEdge implements Edge {
+  node: User!
+  edge: String!
+}
+
+type UserConnection implements UserConnection {
+  edges: [UserEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+extend type Query {
+  user(id: ID!): User!
+  findUser(id: ID!): FindUserPayload!
+  viewer: User
+}
+
+type FindUserPayload {
+  user: User!
+}

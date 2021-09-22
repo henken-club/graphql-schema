@@ -1,0 +1,12 @@
+{
+  "name": "@henken.club/graphql-schema",
+  "private": true,
+  "scripts": {
+    "codegen": "gql-gen"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^2.2.0",
+    "@graphql-codegen/schema-ast": "^2.2.0",
+    "graphql": "^15.6.0"
+  }
+}

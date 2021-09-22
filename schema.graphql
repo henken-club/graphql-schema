@@ -1,0 +1,80 @@
+interface Connection {
+  edges: [Edge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type CreateHenkenPayload {
+  henken: Henken!
+}
+
+interface Edge {
+  edge: String!
+  node: Node!
+}
+
+type FindHenkenPayload {
+  henken: Henken!
+}
+
+type FindUserPayload {
+  user: User!
+}
+
+type Henken implements Node {
+  id: ID!
+}
+
+type HenkenConnection implements Connection {
+  edges: [HenkenEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type HenkenEdge implements Edge {
+  edge: String!
+  node: Henken!
+}
+
+type Mutation {
+  createHenken: CreateHenkenPayload!
+}
+
+interface Node {
+  id: ID!
+}
+
+enum OrderDirection {
+  ASC
+  DESC
+}
+
+type PageInfo {
+  endCursor: String
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+}
+
+type Query {
+  findHenken(id: ID!): FindHenkenPayload!
+  findUser(id: ID!): FindUserPayload!
+  henken(id: ID!): Henken!
+  user(id: ID!): User!
+  viewer: User
+}
+
+type User implements Node {
+  id: ID!
+}
+
+type UserConnection implements UserConnection {
+  edges: [UserEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type UserEdge implements Edge {
+  edge: String!
+  node: User!
+}
