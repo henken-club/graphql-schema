@@ -8,14 +8,14 @@ type User implements Node {
     after: String
     last: Int
     before: String
-    order: FollowingOrder = { order: DESC }
+    order: FollowingOrder = {order: DESC}
   ): UserConnection!
   followers(
     first: Int
     after: String
     last: Int
     before: String
-    order: FollowingOrder = { order: DESC }
+    order: FollowingOrder = {order: DESC}
   ): UserConnection!
 
   postedHenkens(
@@ -23,14 +23,14 @@ type User implements Node {
     after: String
     last: Int
     before: String
-    order: HenkenOrder = { order: DESC, field: CREATED_AT }
+    order: HenkenOrder = {order: DESC, field: CREATED_AT}
   ): HenkenConnection!
   recievedHenkens(
     first: Int
     after: String
     last: Int
     before: String
-    order: HenkenOrder = { order: DESC, field: CREATED_AT }
+    order: HenkenOrder = {order: DESC, field: CREATED_AT}
   ): HenkenConnection!
 
   postedAnswers(
@@ -38,14 +38,14 @@ type User implements Node {
     after: String
     last: Int
     before: String
-    order: AnswerOrder = { order: DESC, field: CREATED_AT }
+    order: AnswerOrder = {order: DESC, field: CREATED_AT}
   ): AnswerConnection!
   recievedAnswers(
     first: Int
     after: String
     last: Int
     before: String
-    order: AnswerOrder = { order: DESC, field: CREATED_AT }
+    order: AnswerOrder = {order: DESC, field: CREATED_AT}
   ): AnswerConnection!
 }
 
