@@ -18,7 +18,7 @@ jobs:
           cache: npm
       - uses: bahmutov/npm-install@v1
       - run: npm run codegen
-      - run: test -z $(git diff --name-only | grep schema.graphql) ; exit $?
+      - run: test -z "$(git diff --name-only | grep schema.graphql)" ; exit $?
 
   prettier:
     name: prettier
