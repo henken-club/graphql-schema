@@ -3,6 +3,21 @@ type User implements Node {
   alias: String!
   displayName: String!
 
+  followees(
+    first: Int
+    after: String
+    last: Int
+    before: String
+    order: FollowingOrder = { order: DESC }
+  ): UserConnection!
+  followers(
+    first: Int
+    after: String
+    last: Int
+    before: String
+    order: FollowingOrder = { order: DESC }
+  ): UserConnection!
+
   postedHenkens(
     first: Int
     after: String
@@ -43,6 +58,10 @@ type UserConnection implements Connection {
   edges: [UserEdge!]!
   pageInfo: PageInfo!
   totalCount: Int!
+}
+
+input FollowingOrder {
+  order: OrderDirection!
 }
 
 extend type Query {
