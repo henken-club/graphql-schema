@@ -9,7 +9,7 @@
     "view-docs": "serve docs",
     "lint": "run-s -cn lint:*",
     "lint:prettier": "prettier **/*.{json,yml,graphql} --write",
-    "lint:cspell": "cspell src/*.graphql",
+    "lint:cspell": "cspell",
     "fmt": "run-s -cn fmt:*",
     "fmt:prettier": "npm run lint -- --write"
   },
