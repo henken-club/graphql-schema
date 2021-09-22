@@ -2,11 +2,13 @@
   "name": "@henken.club/graphql-schema",
   "private": true,
   "scripts": {
-    "codegen": "gql-gen"
+    "codegen": "gql-gen",
+    "fmt": "prettier **/*.{json,graphql} --write"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^2.2.0",
     "@graphql-codegen/schema-ast": "^2.2.0",
-    "graphql": "^15.6.0"
+    "graphql": "^15.6.0",
+    "prettier": "^2.4.1"
   }
 }
