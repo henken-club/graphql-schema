@@ -2,15 +2,15 @@ type Henken implements Node {
   id: ID!
 }
 
+type HenkenEdge implements Edge {
+  edge: String!
+  node: Henken!
+}
+
 type HenkenConnection implements Connection {
   edges: [HenkenEdge!]!
   pageInfo: PageInfo!
   totalCount: Int!
-}
-
-type HenkenEdge implements Edge {
-  edge: String!
-  node: Henken!
 }
 
 extend type Query {
