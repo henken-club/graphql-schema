@@ -25,7 +25,7 @@ type User implements Node {
     before: String
     order: HenkenOrder = {order: DESC, field: CREATED_AT}
   ): HenkenConnection!
-  recievedHenkens(
+  receivedHenkens(
     first: Int
     after: String
     last: Int
@@ -40,7 +40,7 @@ type User implements Node {
     before: String
     order: AnswerOrder = {order: DESC, field: CREATED_AT}
   ): AnswerConnection!
-  recievedAnswers(
+  receivedAnswers(
     first: Int
     after: String
     last: Int
