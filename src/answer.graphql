@@ -1,0 +1,36 @@
+extend type Henken {
+  answer: Answer
+}
+
+type Answer implements Node {
+  id: ID!
+  henken: Henken!
+}
+
+type AnswerEdge implements Edge {
+  edge: String!
+  node: Answer!
+}
+
+type AnswerConnection implements Connection {
+  edges: [AnswerEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+extend type Query {
+  answer(id: ID!): Answer!
+  findAnswer(id: ID!): FindAnswerPayload!
+}
+
+type FindAnswerPayload {
+  answer: Answer!
+}
+
+extend type Mutation {
+  createAnswer: CreateAnswerPayload!
+}
+
+type CreateAnswerPayload {
+  answer: Answer!
+}
