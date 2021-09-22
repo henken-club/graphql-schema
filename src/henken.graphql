@@ -10,6 +10,8 @@ type Henken implements Node {
   postedTo: User!
 
   for: HenkenThing!
+
+  answer: Answer
 }
 
 type HenkenEdge implements Edge {
