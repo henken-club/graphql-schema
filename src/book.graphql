@@ -20,6 +20,15 @@ type BookConnection implements Connection {
   totalCount: Int!
 }
 
+input BookOrder {
+  order: OrderDirection!
+  field: BookOrderField!
+}
+
+enum BookOrderField {
+  TITLE
+}
+
 type BookSeries implements Node {
   id: ID!
 
@@ -42,6 +51,14 @@ type BookSeriesConnection implements Connection {
 type Author implements Node {
   id: ID!
   name: String!
+
+  books(
+    first: Int
+    after: String
+    last: Int
+    before: String
+    order: BookOrder = {order: ASC, field: TITLE}
+  ): BookConnection!
 }
 
 type AuthorEdge implements Edge {
