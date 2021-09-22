@@ -3,8 +3,6 @@ union HenkenThing = Book | BookSeries
 type Henken implements Node {
   id: ID!
 
-  title: String!
-
   createdAt: DateTime!
   updatedAt: DateTime!
 
@@ -12,6 +10,8 @@ type Henken implements Node {
   postedTo: User!
 
   for: HenkenThing!
+
+  answer: Answer
 }
 
 type HenkenEdge implements Edge {
@@ -23,6 +23,16 @@ type HenkenConnection implements Connection {
   edges: [HenkenEdge!]!
   pageInfo: PageInfo!
   totalCount: Int!
+}
+
+input HenkenOrder {
+  order: OrderDirection!
+  field: HenkenOrderField!
+}
+
+enum HenkenOrderField {
+  CREATED_AT
+  UPDATED_AT
 }
 
 extend type Query {

@@ -39,12 +39,31 @@ type BookSeriesConnection implements Connection {
   totalCount: Int!
 }
 
+type Author implements Node {
+  id: ID!
+  name: String!
+}
+
+type AuthorEdge implements Edge {
+  edge: String!
+  node: Author!
+}
+
+type AuthorConnection implements Connection {
+  edges: [AuthorEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
 extend type Query {
   book(id: ID!): Book!
   findBook(id: ID!): FindBookPayload!
 
   bookSeries(id: ID!): BookSeries!
   findBookSeries(id: ID!): FindBookSeriesPayload!
+
+  author(id: ID!): Author!
+  findAuthor(id: ID!): FindAuthorPayload!
 }
 
 type FindBookPayload {
@@ -53,4 +72,8 @@ type FindBookPayload {
 
 type FindBookSeriesPayload {
   series: BookSeries
+}
+
+type FindAuthorPayload {
+  author: Author!
 }
