@@ -1,0 +1,30 @@
+type Book implements Node {
+  id: ID!
+
+  title: String!
+
+  isbn: String
+  cover: String
+
+  authors: [Author!]!
+}
+
+type BookEdge implements Edge {
+  edge: String!
+  node: Book!
+}
+
+type BookConnection implements Connection {
+  edges: [BookEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+extend type Query {
+  book(id: ID!): Book!
+  findBook(id: ID!): FindBookPayload!
+}
+
+type FindBookPayload {
+  book: Book!
+}
