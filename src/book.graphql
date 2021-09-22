@@ -20,11 +20,37 @@ type BookConnection implements Connection {
   totalCount: Int!
 }
 
+type BookSeries implements Node {
+  id: ID!
+
+  title: String!
+
+  books: BookConnection!
+}
+
+type BookSeriesEdge implements Edge {
+  edge: String!
+  node: BookSeries!
+}
+
+type BookSeriesConnection implements Connection {
+  edges: [BookSeriesEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
 extend type Query {
   book(id: ID!): Book!
   findBook(id: ID!): FindBookPayload!
+
+  bookSeries(id: ID!): BookSeries!
+  findBookSeries(id: ID!): FindBookSeriesPayload!
 }
 
 type FindBookPayload {
   book: Book!
+}
+
+type FindBookSeriesPayload {
+  series: BookSeries
 }

@@ -1,5 +1,17 @@
+union HenkenThing = Book | BookSeries
+
 type Henken implements Node {
   id: ID!
+
+  title: String!
+
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  postedBy: User!
+  postedTo: User!
+
+  for: HenkenThing!
 }
 
 type HenkenEdge implements Edge {
