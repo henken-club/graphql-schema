@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "codegen": "gql-gen",
-    "fmt": "prettier **/*.{json,graphql} --write"
+    "fmt": "prettier **/*.{json,yml,graphql} --write"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^2.2.0",
