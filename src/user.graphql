@@ -2,6 +2,36 @@ type User implements Node {
   id: ID!
   alias: String!
   displayName: String!
+
+  postedHenkens(
+    first: Int
+    after: String
+    last: Int
+    before: String
+    order: HenkenOrder = { order: DESC, field: CREATED_AT }
+  ): HenkenConnection!
+  recievedHenkens(
+    first: Int
+    after: String
+    last: Int
+    before: String
+    order: HenkenOrder = { order: DESC, field: CREATED_AT }
+  ): HenkenConnection!
+
+  postedAnswers(
+    first: Int
+    after: String
+    last: Int
+    before: String
+    order: AnswerOrder = { order: DESC, field: CREATED_AT }
+  ): AnswerConnection!
+  recievedAnswers(
+    first: Int
+    after: String
+    last: Int
+    before: String
+    order: AnswerOrder = { order: DESC, field: CREATED_AT }
+  ): AnswerConnection!
 }
 
 type UserEdge implements Edge {

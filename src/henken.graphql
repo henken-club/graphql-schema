@@ -25,6 +25,16 @@ type HenkenConnection implements Connection {
   totalCount: Int!
 }
 
+input HenkenOrder {
+  order: OrderDirection!
+  field: HenkenOrderField!
+}
+
+enum HenkenOrderField {
+  CREATED_AT
+  UPDATED_AT
+}
+
 extend type Query {
   henken(id: ID!): Henken!
   findHenken(id: ID!): FindHenkenPayload!

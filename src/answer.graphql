@@ -14,6 +14,16 @@ type AnswerConnection implements Connection {
   totalCount: Int!
 }
 
+input AnswerOrder {
+  order: OrderDirection!
+  field: AnswerOrderField!
+}
+
+enum AnswerOrderField {
+  CREATED_AT
+  UPDATED_AT
+}
+
 extend type Query {
   answer(id: ID!): Answer!
   findAnswer(id: ID!): FindAnswerPayload!
