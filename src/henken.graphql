@@ -1,5 +1,10 @@
 union HenkenThing = Book | BookSeries
 
+enum HenkenThingType {
+  BOOK
+  BOOK_SERIES
+}
+
 type Henken implements Node {
   id: ID!
 
@@ -7,9 +12,11 @@ type Henken implements Node {
   updatedAt: DateTime!
 
   postedBy: User!
-  postedTo: User!
+  postsTo: User!
 
   for: HenkenThing!
+
+  comment: String!
 
   answer: Answer
 }
@@ -45,7 +52,16 @@ type FindHenkenPayload {
 }
 
 extend type Mutation {
-  createHenken: CreateHenkenPayload!
+  createHenken(
+    postsTo: ID!
+    thingType: HenkenThingType!
+    thingId: ID!
+    data: CreateHenkenData!
+  ): CreateHenkenPayload!
+}
+
+type CreateHenkenData {
+  comment: String
 }
 
 type CreateHenkenPayload {
