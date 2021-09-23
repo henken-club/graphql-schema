@@ -60,7 +60,7 @@ extend type Mutation {
   ): CreateHenkenPayload!
 }
 
-type CreateHenkenData {
+input CreateHenkenData {
   comment: String
 }
 
