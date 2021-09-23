@@ -103,7 +103,7 @@ type CreateAnswerPayload {
   answer: Answer!
 }
 
-type CreateHenkenData {
+input CreateHenkenData {
   comment: String!
   type: AnswerType!
 }
