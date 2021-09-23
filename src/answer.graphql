@@ -1,6 +1,15 @@
 type Answer implements Node {
   id: ID!
-  henken: Henken!
+
+  comment: String!
+  type: AnswerType!
+
+  answerTo: Henken!
+}
+
+enum AnswerType {
+  RIGHT
+  WRONG
 }
 
 type AnswerEdge implements Edge {
@@ -34,7 +43,12 @@ type FindAnswerPayload {
 }
 
 extend type Mutation {
-  createAnswer: CreateAnswerPayload!
+  createAnswer(answerTo: ID!, data: CreateHenkenData!): CreateAnswerPayload!
+}
+
+input CreateHenkenData {
+  comment: String!
+  type: AnswerType!
 }
 
 type CreateAnswerPayload {

@@ -1,6 +1,8 @@
 type Answer implements Node {
-  henken: Henken!
+  answerTo: Henken!
+  comment: String!
   id: ID!
+  type: AnswerType!
 }
 
 type AnswerConnection implements Connection {
@@ -22,6 +24,11 @@ input AnswerOrder {
 enum AnswerOrderField {
   CREATED_AT
   UPDATED_AT
+}
+
+enum AnswerType {
+  RIGHT
+  WRONG
 }
 
 type Author implements Node {
@@ -97,7 +104,8 @@ type CreateAnswerPayload {
 }
 
 type CreateHenkenData {
-  comment: String
+  comment: String!
+  type: AnswerType!
 }
 
 type CreateHenkenPayload {
@@ -179,7 +187,7 @@ enum HenkenThingType {
 }
 
 type Mutation {
-  createAnswer: CreateAnswerPayload!
+  createAnswer(answerTo: ID!, data: CreateHenkenData!): CreateAnswerPayload!
   createHenken(data: CreateHenkenData!, postsTo: ID!, thingId: ID!, thingType: HenkenThingType!): CreateHenkenPayload!
 }
 
