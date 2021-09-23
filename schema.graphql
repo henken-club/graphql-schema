@@ -96,6 +96,10 @@ type CreateAnswerPayload {
   answer: Answer!
 }
 
+type CreateHenkenData {
+  comment: String
+}
+
 type CreateHenkenPayload {
   henken: Henken!
 }
@@ -137,11 +141,12 @@ input FollowingOrder {
 
 type Henken implements Node {
   answer: Answer
+  comment: String!
   createdAt: DateTime!
   for: HenkenThing!
   id: ID!
   postedBy: User!
-  postedTo: User!
+  postsTo: User!
   updatedAt: DateTime!
 }
 
@@ -168,9 +173,14 @@ enum HenkenOrderField {
 
 union HenkenThing = Book | BookSeries
 
+enum HenkenThingType {
+  BOOK
+  BOOK_SERIES
+}
+
 type Mutation {
   createAnswer: CreateAnswerPayload!
-  createHenken: CreateHenkenPayload!
+  createHenken(data: CreateHenkenData!, postsTo: ID!, thingId: ID!, thingType: HenkenThingType!): CreateHenkenPayload!
 }
 
 interface Node {
