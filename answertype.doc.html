@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
-    <title>Answer</title>
+    <title>AnswerType</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
@@ -75,7 +75,7 @@
                 AnswerOrderField
             </a>
         </li>
-        <li  title="AnswerType">
+        <li class="slds-is-active" title="AnswerType">
             <a href="answertype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 AnswerType
             </a>
@@ -145,7 +145,7 @@
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
     <h4 class="slds-text-title--caps slds-p-around--medium">Objects</h4>
     <ul>
-        <li class="slds-is-active" title="Answer">
+        <li  title="Answer">
             <a href="answer.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Answer
             </a>
@@ -375,8 +375,8 @@
         </div>
     </div>
     <div class="container">
-        <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
-        <h1 class="slds-text-heading--large">Answer</h1>
+        <p class="slds-text-title--caps slds-text-color--weak">ENUM</p>
+        <h1 class="slds-text-heading--large">AnswerType</h1>
         <div class="slds-text-body--regular"></div>
     </div>
 </section>
@@ -388,7 +388,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Answer</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">answerTo</span>: <a class="support type" href="henken.doc.html">Henken</a>! </span></li><li></li><li><span class="tab"><span class="meta">comment</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">type</span>: <a class="support type" href="answertype.doc.html">AnswerType</a>! </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">enum</span> <span class="identifier">AnswerType</span> {</li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">RIGHT</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">WRONG</span></span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -399,7 +399,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="answeredge.doc.html" title="AnswerEdge - ">AnswerEdge<em></em></a><li><li><a href="createanswerpayload.doc.html" title="CreateAnswerPayload - ">CreateAnswerPayload<em></em></a><li><li><a href="findanswerpayload.doc.html" title="FindAnswerPayload - ">FindAnswerPayload<em></em></a><li><li><a href="henken.doc.html" title="Henken - ">Henken<em></em></a><li><li><a href="query.doc.html" title="Query - ">Query<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="answer.doc.html" title="Answer - ">Answer<em></em></a><li><li><a href="createhenkendata.doc.html" title="CreateHenkenData - ">CreateHenkenData<em></em></a><li></ul>
     </div>
 </section>
 <footer>

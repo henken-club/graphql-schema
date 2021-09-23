@@ -75,6 +75,11 @@
                 AnswerOrderField
             </a>
         </li>
+        <li  title="AnswerType">
+            <a href="answertype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                AnswerType
+            </a>
+        </li>
         <li  title="BookOrderField">
             <a href="bookorderfield.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 BookOrderField
@@ -83,6 +88,11 @@
         <li  title="HenkenOrderField">
             <a href="henkenorderfield.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 HenkenOrderField
+            </a>
+        </li>
+        <li  title="HenkenThingType">
+            <a href="henkenthingtype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                HenkenThingType
             </a>
         </li>
         <li  title="OrderDirection">
@@ -315,6 +325,11 @@
                 BookOrder
             </a>
         </li>
+        <li  title="CreateHenkenData">
+            <a href="createhenkendata.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CreateHenkenData
+            </a>
+        </li>
         <li  title="FollowingOrder">
             <a href="followingorder.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 FollowingOrder
@@ -373,7 +388,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">Mutation</span> {</li><li></li><li><span class="tab"><span class="meta">createAnswer</span>: <a class="support type" href="createanswerpayload.doc.html">CreateAnswerPayload</a>! </span></li><li></li><li><span class="tab"><span class="meta">createHenken</span>: <a class="support type" href="createhenkenpayload.doc.html">CreateHenkenPayload</a>! </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Mutation</span> {</li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>answerTo</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>data</strong>: </span></span></li><li><span class="tab"><span class="meta">createAnswer</span>(<span class="meta">answerTo</span>: <a class="support type" href="id.doc.html">ID</a>!, <span class="meta">data</span>: <a class="support type" href="createhenkendata.doc.html">CreateHenkenData</a>!): <a class="support type" href="createanswerpayload.doc.html">CreateAnswerPayload</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>data</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>postsTo</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>thingId</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>thingType</strong>: </span></span></li><li><span class="tab"><span class="meta">createHenken</span>(</span></li><li><span class="tab"><span class="tab"><span class="meta">data</span>: <a class="support type" href="createhenkendata.doc.html">CreateHenkenData</a>!,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">postsTo</span>: <a class="support type" href="id.doc.html">ID</a>!,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">thingId</span>: <a class="support type" href="id.doc.html">ID</a>!,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">thingType</span>: <a class="support type" href="henkenthingtype.doc.html">HenkenThingType</a>!</span></span></li><li><span class="tab">): <a class="support type" href="createhenkenpayload.doc.html">CreateHenkenPayload</a>! </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
