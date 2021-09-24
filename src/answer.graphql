@@ -43,10 +43,10 @@ type FindAnswerPayload {
 }
 
 extend type Mutation {
-  createAnswer(answerTo: ID!, data: CreateHenkenData!): CreateAnswerPayload!
+  createAnswer(answerTo: ID!, data: CreateAnswerData!): CreateAnswerPayload!
 }
 
-input CreateHenkenData {
+input CreateAnswerData {
   comment: String!
   type: AnswerType!
 }
