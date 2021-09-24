@@ -106,13 +106,17 @@ enum ContentType {
 
 union ContentUnion = Book | BookSeries
 
+input CreateAnswerData {
+  comment: String!
+  type: AnswerType!
+}
+
 type CreateAnswerPayload {
   answer: Answer!
 }
 
 input CreateHenkenData {
-  comment: String!
-  type: AnswerType!
+  comment: String
 }
 
 type CreateHenkenPayload {
@@ -191,7 +195,7 @@ enum HenkenOrderField {
 }
 
 type Mutation {
-  createAnswer(answerTo: ID!, data: CreateHenkenData!): CreateAnswerPayload!
+  createAnswer(answerTo: ID!, data: CreateAnswerData!): CreateAnswerPayload!
   createHenken(contentId: ID!, contentType: ContentType!, data: CreateHenkenData!, postsTo: ID!): CreateHenkenPayload!
 }
 
