@@ -99,6 +99,13 @@ interface Connection {
   totalCount: Int!
 }
 
+enum ContentType {
+  BOOK
+  BOOK_SERIES
+}
+
+union ContentUnion = Book | BookSeries
+
 type CreateAnswerPayload {
   answer: Answer!
 }
@@ -139,6 +146,10 @@ type FindHenkenPayload {
   henken: Henken!
 }
 
+type FindRecommendationPayload {
+  recommendation: Recommendation!
+}
+
 type FindUserPayload {
   user: User!
 }
@@ -150,8 +161,8 @@ input FollowingOrder {
 type Henken implements Node {
   answer: Answer
   comment: String!
+  content: ContentUnion!
   createdAt: DateTime!
-  for: HenkenThing!
   id: ID!
   postedBy: User!
   postsTo: User!
@@ -179,16 +190,9 @@ enum HenkenOrderField {
   UPDATED_AT
 }
 
-union HenkenThing = Book | BookSeries
-
-enum HenkenThingType {
-  BOOK
-  BOOK_SERIES
-}
-
 type Mutation {
   createAnswer(answerTo: ID!, data: CreateHenkenData!): CreateAnswerPayload!
-  createHenken(data: CreateHenkenData!, postsTo: ID!, thingId: ID!, thingType: HenkenThingType!): CreateHenkenPayload!
+  createHenken(contentId: ID!, contentType: ContentType!, data: CreateHenkenData!, postsTo: ID!): CreateHenkenPayload!
 }
 
 interface Node {
@@ -217,10 +221,40 @@ type Query {
   findBook(id: ID!): FindBookPayload!
   findBookSeries(id: ID!): FindBookSeriesPayload!
   findHenken(id: ID!): FindHenkenPayload!
+  findRecommendation(id: ID!): FindRecommendationPayload!
   findUser(id: ID!): FindUserPayload!
   henken(id: ID!): Henken!
+  recommendation(id: ID!): Recommendation!
   user(id: ID!): User!
   viewer: User
+}
+
+type Recommendation implements Node {
+  content: ContentUnion!
+  id: ID!
+  recommendsTo: User!
+  score: Int!
+  updatedAt: DateTime!
+}
+
+type RecommendationConnection implements Connection {
+  edges: [RecommendationEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type RecommendationEdge implements Edge {
+  edge: String!
+  node: Recommendation!
+}
+
+input RecommendationOrder {
+  field: RecommendationOrderField!
+  order: OrderDirection!
+}
+
+enum RecommendationOrderField {
+  SCORE
 }
 
 type User implements Node {
