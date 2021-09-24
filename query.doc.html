@@ -85,19 +85,24 @@
                 BookOrderField
             </a>
         </li>
+        <li  title="ContentType">
+            <a href="contenttype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ContentType
+            </a>
+        </li>
         <li  title="HenkenOrderField">
             <a href="henkenorderfield.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 HenkenOrderField
             </a>
         </li>
-        <li  title="HenkenThingType">
-            <a href="henkenthingtype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                HenkenThingType
-            </a>
-        </li>
         <li  title="OrderDirection">
             <a href="orderdirection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 OrderDirection
+            </a>
+        </li>
+        <li  title="RecommendationOrderField">
+            <a href="recommendationorderfield.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                RecommendationOrderField
             </a>
         </li>
         <li  title="__DirectiveLocation">
@@ -135,9 +140,9 @@
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
     <h4 class="slds-text-title--caps slds-p-around--medium">Unions</h4>
     <ul>
-        <li  title="HenkenThing">
-            <a href="henkenthing.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                HenkenThing
+        <li  title="ContentUnion">
+            <a href="contentunion.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ContentUnion
             </a>
         </li>
     </ul>
@@ -240,6 +245,11 @@
                 FindHenkenPayload
             </a>
         </li>
+        <li  title="FindRecommendationPayload">
+            <a href="findrecommendationpayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                FindRecommendationPayload
+            </a>
+        </li>
         <li  title="FindUserPayload">
             <a href="finduserpayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 FindUserPayload
@@ -263,6 +273,21 @@
         <li  title="PageInfo">
             <a href="pageinfo.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 PageInfo
+            </a>
+        </li>
+        <li  title="Recommendation">
+            <a href="recommendation.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Recommendation
+            </a>
+        </li>
+        <li  title="RecommendationConnection">
+            <a href="recommendationconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                RecommendationConnection
+            </a>
+        </li>
+        <li  title="RecommendationEdge">
+            <a href="recommendationedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                RecommendationEdge
             </a>
         </li>
         <li  title="User">
@@ -340,6 +365,11 @@
                 HenkenOrder
             </a>
         </li>
+        <li  title="RecommendationOrder">
+            <a href="recommendationorder.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                RecommendationOrder
+            </a>
+        </li>
     </ul>
 </div>
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
@@ -388,7 +418,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Query</span> {</li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">answer</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="answer.doc.html">Answer</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">author</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="author.doc.html">Author</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">book</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="book.doc.html">Book</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">bookSeries</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="bookseries.doc.html">BookSeries</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">findAnswer</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="findanswerpayload.doc.html">FindAnswerPayload</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">findAuthor</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="findauthorpayload.doc.html">FindAuthorPayload</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">findBook</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="findbookpayload.doc.html">FindBookPayload</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">findBookSeries</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="findbookseriespayload.doc.html">FindBookSeriesPayload</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">findHenken</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="findhenkenpayload.doc.html">FindHenkenPayload</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">findUser</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="finduserpayload.doc.html">FindUserPayload</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">henken</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="henken.doc.html">Henken</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">user</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="user.doc.html">User</a>! </span></li><li></li><li><span class="tab"><span class="meta">viewer</span>: <a class="support type" href="user.doc.html">User</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Query</span> {</li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">answer</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="answer.doc.html">Answer</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">author</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="author.doc.html">Author</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">book</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="book.doc.html">Book</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">bookSeries</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="bookseries.doc.html">BookSeries</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">findAnswer</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="findanswerpayload.doc.html">FindAnswerPayload</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">findAuthor</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="findauthorpayload.doc.html">FindAuthorPayload</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">findBook</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="findbookpayload.doc.html">FindBookPayload</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">findBookSeries</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="findbookseriespayload.doc.html">FindBookSeriesPayload</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">findHenken</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="findhenkenpayload.doc.html">FindHenkenPayload</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">findRecommendation</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="findrecommendationpayload.doc.html">FindRecommendationPayload</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">findUser</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="finduserpayload.doc.html">FindUserPayload</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">henken</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="henken.doc.html">Henken</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">recommendation</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="recommendation.doc.html">Recommendation</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">user</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="user.doc.html">User</a>! </span></li><li></li><li><span class="tab"><span class="meta">viewer</span>: <a class="support type" href="user.doc.html">User</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>

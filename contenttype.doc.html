@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
-    <title>HenkenThingType</title>
+    <title>ContentType</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
@@ -85,19 +85,24 @@
                 BookOrderField
             </a>
         </li>
+        <li class="slds-is-active" title="ContentType">
+            <a href="contenttype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ContentType
+            </a>
+        </li>
         <li  title="HenkenOrderField">
             <a href="henkenorderfield.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 HenkenOrderField
             </a>
         </li>
-        <li class="slds-is-active" title="HenkenThingType">
-            <a href="henkenthingtype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                HenkenThingType
-            </a>
-        </li>
         <li  title="OrderDirection">
             <a href="orderdirection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 OrderDirection
+            </a>
+        </li>
+        <li  title="RecommendationOrderField">
+            <a href="recommendationorderfield.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                RecommendationOrderField
             </a>
         </li>
         <li  title="__DirectiveLocation">
@@ -135,9 +140,9 @@
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
     <h4 class="slds-text-title--caps slds-p-around--medium">Unions</h4>
     <ul>
-        <li  title="HenkenThing">
-            <a href="henkenthing.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                HenkenThing
+        <li  title="ContentUnion">
+            <a href="contentunion.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ContentUnion
             </a>
         </li>
     </ul>
@@ -240,6 +245,11 @@
                 FindHenkenPayload
             </a>
         </li>
+        <li  title="FindRecommendationPayload">
+            <a href="findrecommendationpayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                FindRecommendationPayload
+            </a>
+        </li>
         <li  title="FindUserPayload">
             <a href="finduserpayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 FindUserPayload
@@ -263,6 +273,21 @@
         <li  title="PageInfo">
             <a href="pageinfo.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 PageInfo
+            </a>
+        </li>
+        <li  title="Recommendation">
+            <a href="recommendation.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Recommendation
+            </a>
+        </li>
+        <li  title="RecommendationConnection">
+            <a href="recommendationconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                RecommendationConnection
+            </a>
+        </li>
+        <li  title="RecommendationEdge">
+            <a href="recommendationedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                RecommendationEdge
             </a>
         </li>
         <li  title="User">
@@ -340,6 +365,11 @@
                 HenkenOrder
             </a>
         </li>
+        <li  title="RecommendationOrder">
+            <a href="recommendationorder.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                RecommendationOrder
+            </a>
+        </li>
     </ul>
 </div>
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
@@ -376,7 +406,7 @@
     </div>
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">ENUM</p>
-        <h1 class="slds-text-heading--large">HenkenThingType</h1>
+        <h1 class="slds-text-heading--large">ContentType</h1>
         <div class="slds-text-body--regular"></div>
     </div>
 </section>
@@ -388,7 +418,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">enum</span> <span class="identifier">HenkenThingType</span> {</li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">BOOK</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">BOOK_SERIES</span></span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">enum</span> <span class="identifier">ContentType</span> {</li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">BOOK</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">BOOK_SERIES</span></span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>

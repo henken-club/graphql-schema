@@ -85,19 +85,24 @@
                 BookOrderField
             </a>
         </li>
+        <li  title="ContentType">
+            <a href="contenttype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ContentType
+            </a>
+        </li>
         <li  title="HenkenOrderField">
             <a href="henkenorderfield.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 HenkenOrderField
             </a>
         </li>
-        <li  title="HenkenThingType">
-            <a href="henkenthingtype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                HenkenThingType
-            </a>
-        </li>
         <li  title="OrderDirection">
             <a href="orderdirection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 OrderDirection
+            </a>
+        </li>
+        <li  title="RecommendationOrderField">
+            <a href="recommendationorderfield.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                RecommendationOrderField
             </a>
         </li>
         <li  title="__DirectiveLocation">
@@ -135,9 +140,9 @@
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
     <h4 class="slds-text-title--caps slds-p-around--medium">Unions</h4>
     <ul>
-        <li  title="HenkenThing">
-            <a href="henkenthing.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                HenkenThing
+        <li  title="ContentUnion">
+            <a href="contentunion.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ContentUnion
             </a>
         </li>
     </ul>
@@ -240,6 +245,11 @@
                 FindHenkenPayload
             </a>
         </li>
+        <li  title="FindRecommendationPayload">
+            <a href="findrecommendationpayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                FindRecommendationPayload
+            </a>
+        </li>
         <li  title="FindUserPayload">
             <a href="finduserpayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 FindUserPayload
@@ -263,6 +273,21 @@
         <li  title="PageInfo">
             <a href="pageinfo.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 PageInfo
+            </a>
+        </li>
+        <li  title="Recommendation">
+            <a href="recommendation.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Recommendation
+            </a>
+        </li>
+        <li  title="RecommendationConnection">
+            <a href="recommendationconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                RecommendationConnection
+            </a>
+        </li>
+        <li  title="RecommendationEdge">
+            <a href="recommendationedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                RecommendationEdge
             </a>
         </li>
         <li  title="User">
@@ -340,6 +365,11 @@
                 HenkenOrder
             </a>
         </li>
+        <li  title="RecommendationOrder">
+            <a href="recommendationorder.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                RecommendationOrder
+            </a>
+        </li>
     </ul>
 </div>
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
@@ -388,7 +418,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Henken</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">answer</span>: <a class="support type" href="answer.doc.html">Answer</a> </span></li><li></li><li><span class="tab"><span class="meta">comment</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">createdAt</span>: <a class="support type" href="datetime.doc.html">DateTime</a>! </span></li><li></li><li><span class="tab"><span class="meta">for</span>: <a class="support type" href="henkenthing.doc.html">HenkenThing</a>! </span></li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">postedBy</span>: <a class="support type" href="user.doc.html">User</a>! </span></li><li></li><li><span class="tab"><span class="meta">postsTo</span>: <a class="support type" href="user.doc.html">User</a>! </span></li><li></li><li><span class="tab"><span class="meta">updatedAt</span>: <a class="support type" href="datetime.doc.html">DateTime</a>! </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Henken</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">answer</span>: <a class="support type" href="answer.doc.html">Answer</a> </span></li><li></li><li><span class="tab"><span class="meta">comment</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">content</span>: <a class="support type" href="contentunion.doc.html">ContentUnion</a>! </span></li><li></li><li><span class="tab"><span class="meta">createdAt</span>: <a class="support type" href="datetime.doc.html">DateTime</a>! </span></li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">postedBy</span>: <a class="support type" href="user.doc.html">User</a>! </span></li><li></li><li><span class="tab"><span class="meta">postsTo</span>: <a class="support type" href="user.doc.html">User</a>! </span></li><li></li><li><span class="tab"><span class="meta">updatedAt</span>: <a class="support type" href="datetime.doc.html">DateTime</a>! </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
