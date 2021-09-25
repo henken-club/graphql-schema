@@ -1,4 +1,6 @@
-union ContentUnion = Book | BookSeries
+interface Content {
+  id: ID!
+}
 
 enum ContentType {
   BOOK

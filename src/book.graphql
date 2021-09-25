@@ -1,4 +1,4 @@
-type Book implements Node {
+type Book implements Node & Content {
   id: ID!
 
   title: String!
@@ -29,7 +29,7 @@ enum BookOrderField {
   TITLE
 }
 
-type BookSeries implements Node {
+type BookSeries implements Node & Content {
   id: ID!
 
   title: String!

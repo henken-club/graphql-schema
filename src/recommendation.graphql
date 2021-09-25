@@ -6,7 +6,7 @@ type Recommendation implements Node {
   recommendsTo: User!
 
   score: Int!
-  content: ContentUnion!
+  content: Content!
 }
 
 type RecommendationEdge implements Edge {
