@@ -19,7 +19,7 @@ type User implements Node {
     order: FollowingOrder = {order: DESC}
   ): UserConnection!
 
-  postedHenkens(
+  postsHenkens(
     first: Int
     after: String
     last: Int
@@ -34,7 +34,7 @@ type User implements Node {
     order: HenkenOrder = {order: DESC, field: CREATED_AT}
   ): HenkenConnection!
 
-  postedAnswers(
+  postsAnswers(
     first: Int
     after: String
     last: Int

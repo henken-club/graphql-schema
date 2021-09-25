@@ -268,8 +268,8 @@ type User implements Node {
   followees(after: String, before: String, first: Int, last: Int, order: FollowingOrder = {order: DESC}): UserConnection!
   followers(after: String, before: String, first: Int, last: Int, order: FollowingOrder = {order: DESC}): UserConnection!
   id: ID!
-  postedAnswers(after: String, before: String, first: Int, last: Int, order: AnswerOrder = {field: CREATED_AT, order: DESC}): AnswerConnection!
-  postedHenkens(after: String, before: String, first: Int, last: Int, order: HenkenOrder = {field: CREATED_AT, order: DESC}): HenkenConnection!
+  postsAnswers(after: String, before: String, first: Int, last: Int, order: AnswerOrder = {field: CREATED_AT, order: DESC}): AnswerConnection!
+  postsHenkens(after: String, before: String, first: Int, last: Int, order: HenkenOrder = {field: CREATED_AT, order: DESC}): HenkenConnection!
   receivedAnswers(after: String, before: String, first: Int, last: Int, order: AnswerOrder = {field: CREATED_AT, order: DESC}): AnswerConnection!
   receivedHenkens(after: String, before: String, first: Int, last: Int, order: HenkenOrder = {field: CREATED_AT, order: DESC}): HenkenConnection!
 }
