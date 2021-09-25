@@ -7,7 +7,7 @@ interface UserActivityEvent {
 type UserActivity implements Node {
   id: ID!
 
-  event: UserActivity!
+  event: UserActivityEvent!
 }
 
 type UserActivityEdge implements Edge {

@@ -277,7 +277,7 @@ type User implements Node {
 }
 
 type UserActivity implements Node {
-  event: UserActivity!
+  event: UserActivityEvent!
   id: ID!
 }
 
