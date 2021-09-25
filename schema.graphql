@@ -155,7 +155,7 @@ type FindRecommendationPayload {
 }
 
 type FindUserPayload {
-  user: User!
+  user: User
 }
 
 input FollowingOrder {

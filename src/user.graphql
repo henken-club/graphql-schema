@@ -72,5 +72,5 @@ extend type Query {
 }
 
 type FindUserPayload {
-  user: User!
+  user: User
 }
