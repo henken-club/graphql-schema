@@ -11,7 +11,7 @@
     "lint:prettier": "prettier **/*.{json,yml,graphql} --write",
     "lint:cspell": "cspell",
     "fmt": "run-s -cn fmt:*",
-    "fmt:prettier": "npm run lint -- --write"
+    "fmt:prettier": "npm run lint:prettier -- --write"
   },
   "devDependencies": {
     "@2fd/graphdoc": "^2.4.0",
