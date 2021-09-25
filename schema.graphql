@@ -263,6 +263,7 @@ enum RecommendationOrderField {
 }
 
 type User implements Node {
+  activities(after: String, before: String, first: Int, last: Int): UserActivityonnection!
   alias: String!
   avatar: String!
   displayName: String!
@@ -273,7 +274,6 @@ type User implements Node {
   postsHenkens(after: String, before: String, first: Int, last: Int, order: HenkenOrder = {field: CREATED_AT, order: DESC}): HenkenConnection!
   receivedAnswers(after: String, before: String, first: Int, last: Int, order: AnswerOrder = {field: CREATED_AT, order: DESC}): AnswerConnection!
   receivedHenkens(after: String, before: String, first: Int, last: Int, order: HenkenOrder = {field: CREATED_AT, order: DESC}): HenkenConnection!
-  timeline(after: String, before: String, first: Int, last: Int): UserActivityonnection!
 }
 
 type UserActivity implements Node {
