@@ -19,7 +19,7 @@ type User implements Node {
     order: FollowingOrder = {order: DESC}
   ): UserConnection!
 
-  postedHenkens(
+  postsHenkens(
     first: Int
     after: String
     last: Int
@@ -34,7 +34,7 @@ type User implements Node {
     order: HenkenOrder = {order: DESC, field: CREATED_AT}
   ): HenkenConnection!
 
-  postedAnswers(
+  postsAnswers(
     first: Int
     after: String
     last: Int
@@ -67,10 +67,10 @@ input FollowingOrder {
 
 extend type Query {
   user(id: ID!): User!
-  findUser(id: ID!): FindUserPayload!
+  findUser(id: ID, alias:String): FindUserPayload!
   viewer: User
 }
 
 type FindUserPayload {
-  user: User!
+  user: User
 }
