@@ -1,8 +1,10 @@
-type Answer implements Node {
+type Answer implements Node & UserActivityEvent {
   id: ID!
 
   comment: String!
   type: AnswerType!
+
+  createdAt: DateTime!
 
   answerTo: Henken!
 }
