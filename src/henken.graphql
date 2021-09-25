@@ -7,7 +7,7 @@ type Henken implements Node {
   postedBy: User!
   postsTo: User!
 
-  content: ContentUnion!
+  content: Content!
 
   comment: String!
 

@@ -48,7 +48,7 @@ type AuthorEdge implements Edge {
   node: Author!
 }
 
-type Book implements Node {
+type Book implements Content & Node {
   authors: [Author!]!
   cover: String
   id: ID!
@@ -76,7 +76,7 @@ enum BookOrderField {
   TITLE
 }
 
-type BookSeries implements Node {
+type BookSeries implements Content & Node {
   books: BookConnection!
   id: ID!
   title: String!
@@ -99,12 +99,14 @@ interface Connection {
   totalCount: Int!
 }
 
+interface Content {
+  id: ID!
+}
+
 enum ContentType {
   BOOK
   BOOK_SERIES
 }
-
-union ContentUnion = Book | BookSeries
 
 input CreateAnswerData {
   comment: String!
@@ -165,7 +167,7 @@ input FollowingOrder {
 type Henken implements Node {
   answer: Answer
   comment: String!
-  content: ContentUnion!
+  content: Content!
   createdAt: DateTime!
   id: ID!
   postedBy: User!
@@ -234,7 +236,7 @@ type Query {
 }
 
 type Recommendation implements Node {
-  content: ContentUnion!
+  content: Content!
   id: ID!
   recommendsTo: User!
   score: Int!
