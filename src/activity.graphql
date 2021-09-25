@@ -15,7 +15,7 @@ type UserActivityEdge implements Edge {
   node: UserActivity!
 }
 
-type UserActivityonnection implements Connection {
+type UserActivityConnection implements Connection {
   edges: [UserActivityEdge!]!
   pageInfo: PageInfo!
   totalCount: Int!

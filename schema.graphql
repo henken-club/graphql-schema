@@ -265,7 +265,7 @@ enum RecommendationOrderField {
 }
 
 type User implements Node {
-  activities(after: String, before: String, first: Int, last: Int): UserActivityonnection!
+  activities(after: String, before: String, first: Int, last: Int): UserActivityConnection!
   alias: String!
   avatar: String!
   displayName: String!
@@ -283,6 +283,12 @@ type UserActivity implements Node {
   id: ID!
 }
 
+type UserActivityConnection implements Connection {
+  edges: [UserActivityEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
 type UserActivityEdge implements Edge {
   edge: String!
   node: UserActivity!
@@ -291,12 +297,6 @@ type UserActivityEdge implements Edge {
 interface UserActivityEvent {
   createdAt: DateTime!
   id: ID!
-}
-
-type UserActivityonnection implements Connection {
-  edges: [UserActivityEdge!]!
-  pageInfo: PageInfo!
-  totalCount: Int!
 }
 
 type UserConnection implements Connection {

@@ -9,7 +9,7 @@ type User implements Node {
     after: String
     last: Int
     before: String
-  ): UserActivityonnection!
+  ): UserActivityConnection!
 
   followees(
     first: Int
