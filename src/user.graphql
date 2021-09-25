@@ -67,7 +67,7 @@ input FollowingOrder {
 
 extend type Query {
   user(id: ID!): User!
-  findUser(id: ID!): FindUserPayload!
+  findUser(id: ID, alias:String): FindUserPayload!
   viewer: User
 }
 

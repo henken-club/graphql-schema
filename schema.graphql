@@ -226,7 +226,7 @@ type Query {
   findBookSeries(id: ID!): FindBookSeriesPayload!
   findHenken(id: ID!): FindHenkenPayload!
   findRecommendation(id: ID!): FindRecommendationPayload!
-  findUser(id: ID!): FindUserPayload!
+  findUser(alias: String, id: ID): FindUserPayload!
   henken(id: ID!): Henken!
   recommendation(id: ID!): Recommendation!
   user(id: ID!): User!
