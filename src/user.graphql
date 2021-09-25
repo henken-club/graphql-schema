@@ -2,6 +2,7 @@ type User implements Node {
   id: ID!
   alias: String!
   displayName: String!
+  avatar: String!
 
   followees(
     first: Int

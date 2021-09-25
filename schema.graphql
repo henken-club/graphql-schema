@@ -263,6 +263,7 @@ enum RecommendationOrderField {
 
 type User implements Node {
   alias: String!
+  avatar: String!
   displayName: String!
   followees(after: String, before: String, first: Int, last: Int, order: FollowingOrder = {order: DESC}): UserConnection!
   followers(after: String, before: String, first: Int, last: Int, order: FollowingOrder = {order: DESC}): UserConnection!
