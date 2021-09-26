@@ -1,4 +1,4 @@
-type Henken implements Node {
+type Henken implements Node & UserActivityEvent {
   id: ID!
 
   createdAt: DateTime!

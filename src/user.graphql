@@ -4,6 +4,13 @@ type User implements Node {
   displayName: String!
   avatar: String!
 
+  activities(
+    first: Int
+    after: String
+    last: Int
+    before: String
+  ): UserActivityConnection!
+
   followees(
     first: Int
     after: String
@@ -67,7 +74,7 @@ input FollowingOrder {
 
 extend type Query {
   user(id: ID!): User!
-  findUser(id: ID, alias:String): FindUserPayload!
+  findUser(id: ID, alias: String): FindUserPayload!
   viewer: User
 }
 

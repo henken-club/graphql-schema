@@ -1,6 +1,7 @@
-type Answer implements Node {
+type Answer implements Node & UserActivityEvent {
   answerTo: Henken!
   comment: String!
+  createdAt: DateTime!
   id: ID!
   type: AnswerType!
 }
@@ -164,7 +165,7 @@ input FollowingOrder {
   order: OrderDirection!
 }
 
-type Henken implements Node {
+type Henken implements Node & UserActivityEvent {
   answer: Answer
   comment: String!
   content: Content!
@@ -264,6 +265,7 @@ enum RecommendationOrderField {
 }
 
 type User implements Node {
+  activities(after: String, before: String, first: Int, last: Int): UserActivityConnection!
   alias: String!
   avatar: String!
   displayName: String!
@@ -274,6 +276,27 @@ type User implements Node {
   postsHenkens(after: String, before: String, first: Int, last: Int, order: HenkenOrder = {field: CREATED_AT, order: DESC}): HenkenConnection!
   receivedAnswers(after: String, before: String, first: Int, last: Int, order: AnswerOrder = {field: CREATED_AT, order: DESC}): AnswerConnection!
   receivedHenkens(after: String, before: String, first: Int, last: Int, order: HenkenOrder = {field: CREATED_AT, order: DESC}): HenkenConnection!
+}
+
+type UserActivity implements Node {
+  event: UserActivityEvent!
+  id: ID!
+}
+
+type UserActivityConnection implements Connection {
+  edges: [UserActivityEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type UserActivityEdge implements Edge {
+  edge: String!
+  node: UserActivity!
+}
+
+interface UserActivityEvent {
+  createdAt: DateTime!
+  id: ID!
 }
 
 type UserConnection implements Connection {
