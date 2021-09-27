@@ -35,5 +35,5 @@ extend type Query {
 }
 
 type FindRecommendationPayload {
-  recommendation: Recommendation!
+  recommendation: Recommendation
 }
