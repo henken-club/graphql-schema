@@ -43,7 +43,7 @@ extend type Query {
 }
 
 type FindHenkenPayload {
-  henken: Henken!
+  henken: Henken
 }
 
 extend type Mutation {
