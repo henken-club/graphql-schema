@@ -154,7 +154,7 @@ type FindHenkenPayload {
 }
 
 type FindRecommendationPayload {
-  recommendation: Recommendation!
+  recommendation: Recommendation
 }
 
 type FindUserPayload {
