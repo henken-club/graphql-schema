@@ -150,7 +150,7 @@ type FindBookSeriesPayload {
 }
 
 type FindHenkenPayload {
-  henken: Henken!
+  henken: Henken
 }
 
 type FindRecommendationPayload {
@@ -231,6 +231,7 @@ type Query {
   findRecommendation(id: ID!): FindRecommendationPayload!
   findUser(alias: String, id: ID): FindUserPayload!
   henken(id: ID!): Henken!
+  manyHenkens(limit: Int!): [Henken!]!
   manyUsers(limit: Int!): [User!]!
   recommendation(id: ID!): Recommendation!
   user(id: ID!): User!
