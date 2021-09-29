@@ -169,6 +169,7 @@ type Henken implements Node & UserActivityEvent {
   answer: Answer
   comment: String!
   content: Content!
+  count: Int!
   createdAt: DateTime!
   id: ID!
   postedBy: User!
