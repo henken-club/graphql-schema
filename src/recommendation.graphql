@@ -32,7 +32,6 @@ enum RecommendationOrderField {
 extend type Query {
   recommendation(id: ID!): Recommendation!
   findRecommendation(id: ID!): FindRecommendationPayload!
-
   manyRecommendations(limit: Int!): [Recommendation!]!
 }
 

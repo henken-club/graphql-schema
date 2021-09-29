@@ -75,9 +75,8 @@ input FollowingOrder {
 extend type Query {
   user(id: ID!): User!
   findUser(id: ID, alias: String): FindUserPayload!
-  viewer: User
-
   manyUsers(limit: Int!): [User!]!
+  viewer: User
 }
 
 type FindUserPayload {

@@ -38,6 +38,7 @@ enum AnswerOrderField {
 extend type Query {
   answer(id: ID!): Answer!
   findAnswer(id: ID!): FindAnswerPayload!
+  manyAnswers(limit: Int!): [Answer!]!
 }
 
 type FindAnswerPayload {
