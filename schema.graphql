@@ -279,6 +279,7 @@ type User implements Node {
   postsHenkens(after: String, before: String, first: Int, last: Int, order: HenkenOrder = {field: CREATED_AT, order: DESC}): HenkenConnection!
   receivedAnswers(after: String, before: String, first: Int, last: Int, order: AnswerOrder = {field: CREATED_AT, order: DESC}): AnswerConnection!
   receivedHenkens(after: String, before: String, first: Int, last: Int, order: HenkenOrder = {field: CREATED_AT, order: DESC}): HenkenConnection!
+  recommendations(after: String, before: String, first: Int, last: Int, order: RecommendationOrder = {field: SCORE, order: DESC}): RecommendationConnection!
 }
 
 type UserActivity implements Node {
