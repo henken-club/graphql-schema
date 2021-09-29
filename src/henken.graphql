@@ -6,6 +6,7 @@ type Henken implements Node & UserActivityEvent {
 
   postedBy: User!
   postsTo: User!
+  count: Int!
 
   content: Content!
 
