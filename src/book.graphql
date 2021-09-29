@@ -84,7 +84,7 @@ extend type Query {
 }
 
 type FindBookPayload {
-  book: Book!
+  book: Book
 }
 
 type FindBookSeriesPayload {
@@ -92,5 +92,5 @@ type FindBookSeriesPayload {
 }
 
 type FindAuthorPayload {
-  author: Author!
+  author: Author
 }
