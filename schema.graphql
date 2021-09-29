@@ -231,6 +231,10 @@ type Query {
   findRecommendation(id: ID!): FindRecommendationPayload!
   findUser(alias: String, id: ID): FindUserPayload!
   henken(id: ID!): Henken!
+  manyAnswers(limit: Int!): [Answer!]!
+  manyAuthors(limit: Int!): [Author!]!
+  manyBookSeries(limit: Int!): [BookSeries!]!
+  manyBooks(limit: Int!): [Book!]!
   manyHenkens(limit: Int!): [Henken!]!
   manyRecommendations(limit: Int!): [Recommendation!]!
   manyUsers(limit: Int!): [User!]!
