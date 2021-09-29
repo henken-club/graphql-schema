@@ -125,6 +125,11 @@
                 Connection
             </a>
         </li>
+        <li  title="Content">
+            <a href="content.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Content
+            </a>
+        </li>
         <li  title="Edge">
             <a href="edge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Edge
@@ -135,14 +140,9 @@
                 Node
             </a>
         </li>
-    </ul>
-</div>
-<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
-    <h4 class="slds-text-title--caps slds-p-around--medium">Unions</h4>
-    <ul>
-        <li  title="ContentUnion">
-            <a href="contentunion.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                ContentUnion
+        <li  title="UserActivityEvent">
+            <a href="useractivityevent.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                UserActivityEvent
             </a>
         </li>
     </ul>
@@ -295,6 +295,21 @@
                 User
             </a>
         </li>
+        <li  title="UserActivity">
+            <a href="useractivity.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                UserActivity
+            </a>
+        </li>
+        <li  title="UserActivityConnection">
+            <a href="useractivityconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                UserActivityConnection
+            </a>
+        </li>
+        <li  title="UserActivityEdge">
+            <a href="useractivityedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                UserActivityEdge
+            </a>
+        </li>
         <li  title="UserConnection">
             <a href="userconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 UserConnection
@@ -395,6 +410,11 @@
                 skip
             </a>
         </li>
+        <li  title="specifiedBy">
+            <a href="specifiedby.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                specifiedBy
+            </a>
+        </li>
     </ul>
 </div>
         </div>
@@ -423,7 +443,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Henken</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">answer</span>: <a class="support type" href="answer.doc.html">Answer</a> </span></li><li></li><li><span class="tab"><span class="meta">comment</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">content</span>: <a class="support type" href="contentunion.doc.html">ContentUnion</a>! </span></li><li></li><li><span class="tab"><span class="meta">createdAt</span>: <a class="support type" href="datetime.doc.html">DateTime</a>! </span></li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">postedBy</span>: <a class="support type" href="user.doc.html">User</a>! </span></li><li></li><li><span class="tab"><span class="meta">postsTo</span>: <a class="support type" href="user.doc.html">User</a>! </span></li><li></li><li><span class="tab"><span class="meta">updatedAt</span>: <a class="support type" href="datetime.doc.html">DateTime</a>! </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Henken</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a>, <a class="support type" href="useractivityevent.doc.html">UserActivityEvent</a> {</li><li></li><li><span class="tab"><span class="meta">answer</span>: <a class="support type" href="answer.doc.html">Answer</a> </span></li><li></li><li><span class="tab"><span class="meta">comment</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">content</span>: <a class="support type" href="content.doc.html">Content</a>! </span></li><li></li><li><span class="tab"><span class="meta">createdAt</span>: <a class="support type" href="datetime.doc.html">DateTime</a>! </span></li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">postedBy</span>: <a class="support type" href="user.doc.html">User</a>! </span></li><li></li><li><span class="tab"><span class="meta">postsTo</span>: <a class="support type" href="user.doc.html">User</a>! </span></li><li></li><li><span class="tab"><span class="meta">updatedAt</span>: <a class="support type" href="datetime.doc.html">DateTime</a>! </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -434,7 +454,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="answer.doc.html" title="Answer - ">Answer<em></em></a><li><li><a href="createhenkenpayload.doc.html" title="CreateHenkenPayload - ">CreateHenkenPayload<em></em></a><li><li><a href="findhenkenpayload.doc.html" title="FindHenkenPayload - ">FindHenkenPayload<em></em></a><li><li><a href="henkenedge.doc.html" title="HenkenEdge - ">HenkenEdge<em></em></a><li><li><a href="query.doc.html" title="Query - ">Query<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="answer.doc.html" title="Answer - ">Answer<em>null</em></a><li><li><a href="createhenkenpayload.doc.html" title="CreateHenkenPayload - ">CreateHenkenPayload<em>null</em></a><li><li><a href="findhenkenpayload.doc.html" title="FindHenkenPayload - ">FindHenkenPayload<em>null</em></a><li><li><a href="henkenedge.doc.html" title="HenkenEdge - ">HenkenEdge<em>null</em></a><li><li><a href="query.doc.html" title="Query - ">Query<em>null</em></a><li></ul>
     </div>
 </section>
 <footer>

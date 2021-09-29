@@ -125,6 +125,11 @@
                 Connection
             </a>
         </li>
+        <li  title="Content">
+            <a href="content.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Content
+            </a>
+        </li>
         <li  title="Edge">
             <a href="edge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Edge
@@ -135,14 +140,9 @@
                 Node
             </a>
         </li>
-    </ul>
-</div>
-<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
-    <h4 class="slds-text-title--caps slds-p-around--medium">Unions</h4>
-    <ul>
-        <li  title="ContentUnion">
-            <a href="contentunion.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                ContentUnion
+        <li  title="UserActivityEvent">
+            <a href="useractivityevent.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                UserActivityEvent
             </a>
         </li>
     </ul>
@@ -295,6 +295,21 @@
                 User
             </a>
         </li>
+        <li  title="UserActivity">
+            <a href="useractivity.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                UserActivity
+            </a>
+        </li>
+        <li  title="UserActivityConnection">
+            <a href="useractivityconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                UserActivityConnection
+            </a>
+        </li>
+        <li  title="UserActivityEdge">
+            <a href="useractivityedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                UserActivityEdge
+            </a>
+        </li>
         <li  title="UserConnection">
             <a href="userconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 UserConnection
@@ -395,6 +410,11 @@
                 skip
             </a>
         </li>
+        <li  title="specifiedBy">
+            <a href="specifiedby.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                specifiedBy
+            </a>
+        </li>
     </ul>
 </div>
         </div>
@@ -423,7 +443,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Mutation</span> {</li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>answerTo</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>data</strong>: </span></span></li><li><span class="tab"><span class="meta">createAnswer</span>(<span class="meta">answerTo</span>: <a class="support type" href="id.doc.html">ID</a>!, <span class="meta">data</span>: <a class="support type" href="createanswerdata.doc.html">CreateAnswerData</a>!): <a class="support type" href="createanswerpayload.doc.html">CreateAnswerPayload</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>contentId</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>contentType</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>data</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>postsTo</strong>: </span></span></li><li><span class="tab"><span class="meta">createHenken</span>(</span></li><li><span class="tab"><span class="tab"><span class="meta">contentId</span>: <a class="support type" href="id.doc.html">ID</a>!,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">contentType</span>: <a class="support type" href="contenttype.doc.html">ContentType</a>!,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">data</span>: <a class="support type" href="createhenkendata.doc.html">CreateHenkenData</a>!,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">postsTo</span>: <a class="support type" href="id.doc.html">ID</a>!</span></span></li><li><span class="tab">): <a class="support type" href="createhenkenpayload.doc.html">CreateHenkenPayload</a>! </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Mutation</span> {</li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>answerTo</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="comment line">#   <strong>data</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="meta">createAnswer</span>(<span class="meta">answerTo</span>: <a class="support type" href="id.doc.html">ID</a>!, <span class="meta">data</span>: <a class="support type" href="createanswerdata.doc.html">CreateAnswerData</a>!): <a class="support type" href="createanswerpayload.doc.html">CreateAnswerPayload</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>contentId</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="comment line">#   <strong>contentType</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="comment line">#   <strong>data</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="comment line">#   <strong>postsTo</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="meta">createHenken</span>(</span></li><li><span class="tab"><span class="tab"><span class="meta">contentId</span>: <a class="support type" href="id.doc.html">ID</a>!,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">contentType</span>: <a class="support type" href="contenttype.doc.html">ContentType</a>!,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">data</span>: <a class="support type" href="createhenkendata.doc.html">CreateHenkenData</a>!,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">postsTo</span>: <a class="support type" href="id.doc.html">ID</a>!</span></span></li><li><span class="tab">): <a class="support type" href="createhenkenpayload.doc.html">CreateHenkenPayload</a>! </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
