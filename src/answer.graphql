@@ -41,7 +41,7 @@ extend type Query {
 }
 
 type FindAnswerPayload {
-  answer: Answer!
+  answer: Answer
 }
 
 extend type Mutation {

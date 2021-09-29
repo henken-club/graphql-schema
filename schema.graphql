@@ -134,7 +134,7 @@ interface Edge {
 }
 
 type FindAnswerPayload {
-  answer: Answer!
+  answer: Answer
 }
 
 type FindAuthorPayload {
