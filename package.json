@@ -23,5 +23,8 @@
     "prettier": "^2.4.1",
     "rimraf": "^3.0.2",
     "serve": "^12.0.1"
+  },
+  "resolutions": {
+    "graphql": "^15.6.0"
   }
 }
