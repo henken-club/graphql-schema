@@ -31,14 +31,16 @@ type User implements Node {
     after: String
     last: Int
     before: String
-    order: HenkenOrder = {order: DESC, field: CREATED_AT}
+    order: HenkenOrder! = {order: DESC, field: CREATED_AT}
+    filter: UserPostsHenkensFilter
   ): HenkenConnection!
   receivedHenkens(
     first: Int
     after: String
     last: Int
     before: String
-    order: HenkenOrder = {order: DESC, field: CREATED_AT}
+    order: HenkenOrder! = {order: DESC, field: CREATED_AT}
+    filter: UserReceivedHenkensFilter
   ): HenkenConnection!
 
   postsAnswers(
@@ -46,15 +48,23 @@ type User implements Node {
     after: String
     last: Int
     before: String
-    order: AnswerOrder = {order: DESC, field: CREATED_AT}
+    order: AnswerOrder! = {order: DESC, field: CREATED_AT}
   ): AnswerConnection!
   receivedAnswers(
     first: Int
     after: String
     last: Int
     before: String
-    order: AnswerOrder = {order: DESC, field: CREATED_AT}
+    order: AnswerOrder! = {order: DESC, field: CREATED_AT}
   ): AnswerConnection!
+}
+
+input UserPostsHenkensFilter {
+  to: ID!
+}
+
+input UserReceivedHenkensFilter {
+  from: ID!
 }
 
 type UserEdge implements Edge {

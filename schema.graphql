@@ -275,10 +275,10 @@ type User implements Node {
   followees(after: String, before: String, first: Int, last: Int, order: FollowingOrder = {order: DESC}): UserConnection!
   followers(after: String, before: String, first: Int, last: Int, order: FollowingOrder = {order: DESC}): UserConnection!
   id: ID!
-  postsAnswers(after: String, before: String, first: Int, last: Int, order: AnswerOrder = {field: CREATED_AT, order: DESC}): AnswerConnection!
-  postsHenkens(after: String, before: String, first: Int, last: Int, order: HenkenOrder = {field: CREATED_AT, order: DESC}): HenkenConnection!
-  receivedAnswers(after: String, before: String, first: Int, last: Int, order: AnswerOrder = {field: CREATED_AT, order: DESC}): AnswerConnection!
-  receivedHenkens(after: String, before: String, first: Int, last: Int, order: HenkenOrder = {field: CREATED_AT, order: DESC}): HenkenConnection!
+  postsAnswers(after: String, before: String, first: Int, last: Int, order: AnswerOrder! = {field: CREATED_AT, order: DESC}): AnswerConnection!
+  postsHenkens(after: String, before: String, filter: UserPostsHenkensFilter, first: Int, last: Int, order: HenkenOrder! = {field: CREATED_AT, order: DESC}): HenkenConnection!
+  receivedAnswers(after: String, before: String, first: Int, last: Int, order: AnswerOrder! = {field: CREATED_AT, order: DESC}): AnswerConnection!
+  receivedHenkens(after: String, before: String, filter: UserReceivedHenkensFilter, first: Int, last: Int, order: HenkenOrder! = {field: CREATED_AT, order: DESC}): HenkenConnection!
 }
 
 type UserActivity implements Node {
@@ -311,4 +311,12 @@ type UserConnection implements Connection {
 type UserEdge implements Edge {
   edge: String!
   node: User!
+}
+
+input UserPostsHenkensFilter {
+  to: ID!
+}
+
+input UserReceivedHenkensFilter {
+  from: ID!
 }
