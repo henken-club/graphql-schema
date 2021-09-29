@@ -138,11 +138,11 @@ type FindAnswerPayload {
 }
 
 type FindAuthorPayload {
-  author: Author!
+  author: Author
 }
 
 type FindBookPayload {
-  book: Book!
+  book: Book
 }
 
 type FindBookSeriesPayload {
