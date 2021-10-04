@@ -61,6 +61,7 @@ type CreateHenkenPayload {
   henken: Henken!
 }
 
+# A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
 scalar DateTime
 
 interface Edge {
@@ -147,7 +148,11 @@ enum HenkenOrderField {
 }
 
 type Mutation {
-  createHenken(comment: String = "", content: ID!, to: ID!): CreateHenkenPayload!
+  createHenken(
+    comment: String = ""
+    content: ID!
+    to: ID!
+  ): CreateHenkenPayload!
 }
 
 interface Node {
@@ -181,13 +186,53 @@ type Query {
 }
 
 type User implements Node {
-  followees(after: String, before: String, first: Int, last: Int, orderBy: FollowingOrder!): FollowingConnection!
-  followers(after: String, before: String, first: Int, last: Int, orderBy: FollowingOrder!): FollowingConnection!
+  followees(
+    after: String
+    before: String
+    first: Int
+    last: Int
+    orderBy: FollowingOrder!
+  ): FollowingConnection!
+  followers(
+    after: String
+    before: String
+    first: Int
+    last: Int
+    orderBy: FollowingOrder!
+  ): FollowingConnection!
   id: ID!
-  postsAnswers(after: String, before: String, filter: UserPostsAnswersFilter, first: Int, last: Int, orderBy: AnswerOrder!): AnswerConnection!
-  postsHenkens(after: String, before: String, filter: UserPostsHenkensFilter, first: Int, last: Int, orderBy: HenkenOrder!): HenkenConnection!
-  receivedAnswers(after: String, before: String, filter: UserReceivedAnswersFilter, first: Int, last: Int, orderBy: AnswerOrder!): AnswerConnection!
-  receivedHenkens(after: String, before: String, filter: UserReceivedHenkensFilter, first: Int, last: Int, orderBy: HenkenOrder!): HenkenConnection!
+  postsAnswers(
+    after: String
+    before: String
+    filter: UserPostsAnswersFilter
+    first: Int
+    last: Int
+    orderBy: AnswerOrder!
+  ): AnswerConnection!
+  postsHenkens(
+    after: String
+    before: String
+    filter: UserPostsHenkensFilter
+    first: Int
+    last: Int
+    orderBy: HenkenOrder!
+  ): HenkenConnection!
+  receivedAnswers(
+    after: String
+    before: String
+    filter: UserReceivedAnswersFilter
+    first: Int
+    last: Int
+    orderBy: AnswerOrder!
+  ): AnswerConnection!
+  receivedHenkens(
+    after: String
+    before: String
+    filter: UserReceivedHenkensFilter
+    first: Int
+    last: Int
+    orderBy: HenkenOrder!
+  ): HenkenConnection!
 }
 
 input UserPostsAnswersFilter {

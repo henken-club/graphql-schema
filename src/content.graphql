@@ -1,8 +1,0 @@
-interface Content {
-  id: ID!
-}
-
-enum ContentType {
-  BOOK
-  BOOK_SERIES
-}
