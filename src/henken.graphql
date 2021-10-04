@@ -6,6 +6,7 @@ type Henken implements Node & UserActivityEvent {
 
   postedBy: User!
   postsTo: User!
+  count: Int!
 
   content: Content!
 
@@ -38,7 +39,6 @@ enum HenkenOrderField {
 extend type Query {
   henken(id: ID!): Henken!
   findHenken(id: ID!): FindHenkenPayload!
-
   manyHenkens(limit: Int!): [Henken!]!
 }
 

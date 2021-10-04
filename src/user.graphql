@@ -31,14 +31,16 @@ type User implements Node {
     after: String
     last: Int
     before: String
-    order: HenkenOrder = {order: DESC, field: CREATED_AT}
+    order: HenkenOrder! = {order: DESC, field: CREATED_AT}
+    filter: UserPostsHenkensFilter
   ): HenkenConnection!
   receivedHenkens(
     first: Int
     after: String
     last: Int
     before: String
-    order: HenkenOrder = {order: DESC, field: CREATED_AT}
+    order: HenkenOrder! = {order: DESC, field: CREATED_AT}
+    filter: UserReceivedHenkensFilter
   ): HenkenConnection!
 
   postsAnswers(
@@ -46,14 +48,14 @@ type User implements Node {
     after: String
     last: Int
     before: String
-    order: AnswerOrder = {order: DESC, field: CREATED_AT}
+    order: AnswerOrder! = {order: DESC, field: CREATED_AT}
   ): AnswerConnection!
   receivedAnswers(
     first: Int
     after: String
     last: Int
     before: String
-    order: AnswerOrder = {order: DESC, field: CREATED_AT}
+    order: AnswerOrder! = {order: DESC, field: CREATED_AT}
   ): AnswerConnection!
 
   recommendations(
@@ -63,6 +65,14 @@ type User implements Node {
     before: String
     order: RecommendationOrder = {order: DESC, field: SCORE}
   ): RecommendationConnection!
+}
+
+input UserPostsHenkensFilter {
+  to: ID!
+}
+
+input UserReceivedHenkensFilter {
+  from: ID!
 }
 
 type UserEdge implements Edge {
@@ -83,9 +93,8 @@ input FollowingOrder {
 extend type Query {
   user(id: ID!): User!
   findUser(id: ID, alias: String): FindUserPayload!
-  viewer: User
-
   manyUsers(limit: Int!): [User!]!
+  viewer: User
 }
 
 type FindUserPayload {

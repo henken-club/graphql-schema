@@ -75,16 +75,19 @@ type AuthorConnection implements Connection {
 extend type Query {
   book(id: ID!): Book!
   findBook(id: ID!): FindBookPayload!
+  manyBooks(limit: Int!): [Book!]!
 
   bookSeries(id: ID!): BookSeries!
   findBookSeries(id: ID!): FindBookSeriesPayload!
+  manyBookSeries(limit: Int!): [BookSeries!]!
 
   author(id: ID!): Author!
   findAuthor(id: ID!): FindAuthorPayload!
+  manyAuthors(limit: Int!): [Author!]!
 }
 
 type FindBookPayload {
-  book: Book!
+  book: Book
 }
 
 type FindBookSeriesPayload {
@@ -92,5 +95,5 @@ type FindBookSeriesPayload {
 }
 
 type FindAuthorPayload {
-  author: Author!
+  author: Author
 }
