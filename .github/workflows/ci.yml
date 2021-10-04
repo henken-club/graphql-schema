@@ -7,8 +7,8 @@ on:
   pull_request:
 
 jobs:
-  codegen:
-    name: codegen
+  schema-generate:
+    name: Schema Genearate
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -17,7 +17,7 @@ jobs:
           node-version: 16
           cache: npm
       - uses: bahmutov/npm-install@v1
-      - run: npm run codegen
+      - run: npm run schema-generate
       - run: test -z "$(git diff --name-only | grep schema.graphql)" ; exit $?
 
   prettier:

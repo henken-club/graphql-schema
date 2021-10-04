@@ -1,6 +1,7 @@
 generates:
   ./schema.graphql:
     schema:
-      - ./src/*.graphql
+      - ./bff/schema.graphql
+      - ./extends/*.graphql
     plugins:
       - schema-ast
