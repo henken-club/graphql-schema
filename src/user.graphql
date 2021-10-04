@@ -57,6 +57,14 @@ type User implements Node {
     before: String
     order: AnswerOrder! = {order: DESC, field: CREATED_AT}
   ): AnswerConnection!
+
+  recommendations(
+    first: Int
+    after: String
+    last: Int
+    before: String
+    order: RecommendationOrder = {order: DESC, field: SCORE}
+  ): RecommendationConnection!
 }
 
 input UserPostsHenkensFilter {
