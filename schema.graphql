@@ -3,6 +3,7 @@ type Answer implements Node {
   createdAt: DateTime!
   henken: Henken!
   id: ID!
+  type: AnswerType!
   updatedAt: DateTime!
 }
 
@@ -27,8 +28,39 @@ enum AnswerOrderField {
   UPDATED_AT
 }
 
-type Book implements Content & Node {
+enum AnswerType {
+  RIGHT
+  WRONG
+}
+
+type Author implements Node {
+  books(after: String, before: String, first: Int, last: Int, order: BookOrder!): BookConnection!
   id: ID!
+  name: String!
+}
+
+type AuthorConnection implements Connection {
+  edges: [AuthorEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type AuthorEdge implements Edge {
+  cursor: String!
+  node: Author!
+}
+
+type Book implements Content & Node {
+  cover: String
+  id: ID!
+  isbn: String
+  title: String!
+}
+
+type BookConnection implements Connection {
+  edges: [BookEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
 }
 
 type BookEdge implements Edge {
@@ -36,8 +68,18 @@ type BookEdge implements Edge {
   node: Book!
 }
 
+input BookOrder {
+  field: BookOrderField!
+  order: OrderDirection!
+}
+
+enum BookOrderField {
+  TITLE
+}
+
 type BookSeries implements Content & Node {
   id: ID!
+  title: String!
 }
 
 type BookSeriesEdge implements Edge {
@@ -72,7 +114,7 @@ interface Edge {
 }
 
 type FindAnswerPayload {
-  henken: Answer
+  answer: Answer
 }
 
 type FindBookPayload {
@@ -182,9 +224,15 @@ type Query {
   findBookSeries(id: ID!): FindBookSeriesPayload!
   findHenken(id: ID!): FindHenkenPayload!
   findRecommendation(id: ID!): FindRecommendationPayload!
-  findUser(id: ID!): FindUserPayload!
+  findUser(alias: String, id: ID): FindUserPayload!
   henken(id: ID!): Henken!
+  manyAnswers(limit: Int!): [Answer!]!
+  manyAuthors(limit: Int!): [Author!]!
+  manyBookSeries(limit: Int!): [BookSeries!]!
+  manyBooks(limit: Int!): [Book!]!
+  manyHenkens(limit: Int!): [Henken!]!
   manyRecommendations(limit: Int!): [Recommendation!]!
+  manyUsers(limit: Int!): [User!]!
   recommendation(id: ID!): Recommendation!
   user(id: ID!): User!
   viewer: User!
@@ -205,7 +253,7 @@ type RecommendationConnection implements Connection {
 }
 
 type RecommendationEdge implements Edge {
-  edge: String!
+  cursor: String!
   node: Recommendation!
 }
 
@@ -219,6 +267,10 @@ enum RecommendationOrderField {
 }
 
 type User implements Node {
+  activities(after: String, before: String, first: Int, last: Int): UserActivityConnection!
+  alias: String!
+  avatar: String!
+  displayName: String!
   followees(after: String, before: String, first: Int, last: Int, orderBy: FollowingOrder!): FollowingConnection!
   followers(after: String, before: String, first: Int, last: Int, orderBy: FollowingOrder!): FollowingConnection!
   id: ID!
@@ -226,6 +278,27 @@ type User implements Node {
   postsHenkens(after: String, before: String, filter: UserPostsHenkensFilter, first: Int, last: Int, orderBy: HenkenOrder!): HenkenConnection!
   receivedAnswers(after: String, before: String, filter: UserReceivedAnswersFilter, first: Int, last: Int, orderBy: AnswerOrder!): AnswerConnection!
   receivedHenkens(after: String, before: String, filter: UserReceivedHenkensFilter, first: Int, last: Int, orderBy: HenkenOrder!): HenkenConnection!
+}
+
+type UserActivity implements Node {
+  event: UserActivityEvent!
+  id: ID!
+}
+
+type UserActivityConnection implements Connection {
+  edges: [UserActivityEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type UserActivityEdge implements Edge {
+  cursor: String!
+  node: UserActivity!
+}
+
+interface UserActivityEvent {
+  id: ID!
+  timestamp: DateTime!
 }
 
 input UserPostsAnswersFilter {

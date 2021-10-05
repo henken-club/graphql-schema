@@ -1,0 +1,30 @@
+extend type Book {
+  title: String!
+
+  isbn: String
+  cover: String
+}
+
+type BookEdge implements Edge {
+  cursor: String!
+  node: Book!
+}
+
+type BookConnection implements Connection {
+  edges: [BookEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+input BookOrder {
+  field: BookOrderField!
+  order: OrderDirection!
+}
+
+enum BookOrderField {
+  TITLE
+}
+
+extend type Query {
+  manyBooks(limit: Int!): [Book!]!
+}

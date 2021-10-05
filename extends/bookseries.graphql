@@ -1,0 +1,7 @@
+extend type BookSeries {
+  title: String!
+}
+
+extend type Query {
+  manyBookSeries(limit: Int!): [BookSeries!]!
+}

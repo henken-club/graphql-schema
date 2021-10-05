@@ -1,0 +1,29 @@
+interface UserActivityEvent {
+  id: ID!
+  timestamp: DateTime!
+}
+
+type UserActivity implements Node {
+  id: ID!
+  event: UserActivityEvent!
+}
+
+type UserActivityEdge implements Edge {
+  cursor: String!
+  node: UserActivity!
+}
+
+type UserActivityConnection implements Connection {
+  edges: [UserActivityEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+extend type User {
+  activities(
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): UserActivityConnection!
+}
