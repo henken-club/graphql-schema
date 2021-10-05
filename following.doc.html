@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
-    <title>UserConnection</title>
+    <title>Following</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
@@ -85,9 +85,9 @@
                 BookOrderField
             </a>
         </li>
-        <li  title="ContentType">
-            <a href="contenttype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                ContentType
+        <li  title="FollowingOrderField">
+            <a href="followingorderfield.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                FollowingOrderField
             </a>
         </li>
         <li  title="HenkenOrderField">
@@ -148,6 +148,16 @@
     </ul>
 </div>
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Unions</h4>
+    <ul>
+        <li  title="ContentUnion">
+            <a href="contentunion.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ContentUnion
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
     <h4 class="slds-text-title--caps slds-p-around--medium">Objects</h4>
     <ul>
         <li  title="Answer">
@@ -200,19 +210,9 @@
                 BookSeries
             </a>
         </li>
-        <li  title="BookSeriesConnection">
-            <a href="bookseriesconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                BookSeriesConnection
-            </a>
-        </li>
         <li  title="BookSeriesEdge">
             <a href="bookseriesedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 BookSeriesEdge
-            </a>
-        </li>
-        <li  title="CreateAnswerPayload">
-            <a href="createanswerpayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                CreateAnswerPayload
             </a>
         </li>
         <li  title="CreateHenkenPayload">
@@ -223,11 +223,6 @@
         <li  title="FindAnswerPayload">
             <a href="findanswerpayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 FindAnswerPayload
-            </a>
-        </li>
-        <li  title="FindAuthorPayload">
-            <a href="findauthorpayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                FindAuthorPayload
             </a>
         </li>
         <li  title="FindBookPayload">
@@ -253,6 +248,21 @@
         <li  title="FindUserPayload">
             <a href="finduserpayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 FindUserPayload
+            </a>
+        </li>
+        <li class="slds-is-active" title="Following">
+            <a href="following.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Following
+            </a>
+        </li>
+        <li  title="FollowingConnection">
+            <a href="followingconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                FollowingConnection
+            </a>
+        </li>
+        <li  title="FollowingEdge">
+            <a href="followingedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                FollowingEdge
             </a>
         </li>
         <li  title="Henken">
@@ -310,16 +320,6 @@
                 UserActivityEdge
             </a>
         </li>
-        <li class="slds-is-active" title="UserConnection">
-            <a href="userconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                UserConnection
-            </a>
-        </li>
-        <li  title="UserEdge">
-            <a href="useredge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                UserEdge
-            </a>
-        </li>
         <li  title="__Directive">
             <a href="directive.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 __Directive
@@ -365,16 +365,6 @@
                 BookOrder
             </a>
         </li>
-        <li  title="CreateAnswerData">
-            <a href="createanswerdata.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                CreateAnswerData
-            </a>
-        </li>
-        <li  title="CreateHenkenData">
-            <a href="createhenkendata.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                CreateHenkenData
-            </a>
-        </li>
         <li  title="FollowingOrder">
             <a href="followingorder.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 FollowingOrder
@@ -390,9 +380,19 @@
                 RecommendationOrder
             </a>
         </li>
+        <li  title="UserPostsAnswersFilter">
+            <a href="userpostsanswersfilter.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                UserPostsAnswersFilter
+            </a>
+        </li>
         <li  title="UserPostsHenkensFilter">
             <a href="userpostshenkensfilter.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 UserPostsHenkensFilter
+            </a>
+        </li>
+        <li  title="UserReceivedAnswersFilter">
+            <a href="userreceivedanswersfilter.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                UserReceivedAnswersFilter
             </a>
         </li>
         <li  title="UserReceivedHenkensFilter">
@@ -441,7 +441,7 @@
     </div>
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
-        <h1 class="slds-text-heading--large">UserConnection</h1>
+        <h1 class="slds-text-heading--large">Following</h1>
         <div class="slds-text-body--regular"></div>
     </div>
 </section>
@@ -453,7 +453,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">UserConnection</span> <span class="keyword operator ts">implements</span> <a class="support type" href="connection.doc.html">Connection</a> {</li><li></li><li><span class="tab"><span class="meta">edges</span>: [<a class="support type" href="useredge.doc.html">UserEdge</a>!]! </span></li><li></li><li><span class="tab"><span class="meta">pageInfo</span>: <a class="support type" href="pageinfo.doc.html">PageInfo</a>! </span></li><li></li><li><span class="tab"><span class="meta">totalCount</span>: <a class="support type" href="int.doc.html">Int</a>! </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">Following</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">from</span>: <a class="support type" href="user.doc.html">User</a>! </span></li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">to</span>: <a class="support type" href="user.doc.html">User</a>! </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -464,7 +464,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="user.doc.html" title="User - ">User<em>null</em></a><li></ul>
+        <ul class="require-by"><li><a href="followingedge.doc.html" title="FollowingEdge - ">FollowingEdge<em>null</em></a><li></ul>
     </div>
 </section>
 <footer>

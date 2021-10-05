@@ -85,9 +85,9 @@
                 BookOrderField
             </a>
         </li>
-        <li  title="ContentType">
-            <a href="contenttype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                ContentType
+        <li  title="FollowingOrderField">
+            <a href="followingorderfield.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                FollowingOrderField
             </a>
         </li>
         <li  title="HenkenOrderField">
@@ -148,6 +148,16 @@
     </ul>
 </div>
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Unions</h4>
+    <ul>
+        <li  title="ContentUnion">
+            <a href="contentunion.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ContentUnion
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
     <h4 class="slds-text-title--caps slds-p-around--medium">Objects</h4>
     <ul>
         <li  title="Answer">
@@ -200,19 +210,9 @@
                 BookSeries
             </a>
         </li>
-        <li  title="BookSeriesConnection">
-            <a href="bookseriesconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                BookSeriesConnection
-            </a>
-        </li>
         <li  title="BookSeriesEdge">
             <a href="bookseriesedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 BookSeriesEdge
-            </a>
-        </li>
-        <li  title="CreateAnswerPayload">
-            <a href="createanswerpayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                CreateAnswerPayload
             </a>
         </li>
         <li  title="CreateHenkenPayload">
@@ -223,11 +223,6 @@
         <li  title="FindAnswerPayload">
             <a href="findanswerpayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 FindAnswerPayload
-            </a>
-        </li>
-        <li  title="FindAuthorPayload">
-            <a href="findauthorpayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                FindAuthorPayload
             </a>
         </li>
         <li  title="FindBookPayload">
@@ -253,6 +248,21 @@
         <li  title="FindUserPayload">
             <a href="finduserpayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 FindUserPayload
+            </a>
+        </li>
+        <li  title="Following">
+            <a href="following.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Following
+            </a>
+        </li>
+        <li  title="FollowingConnection">
+            <a href="followingconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                FollowingConnection
+            </a>
+        </li>
+        <li  title="FollowingEdge">
+            <a href="followingedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                FollowingEdge
             </a>
         </li>
         <li  title="Henken">
@@ -310,16 +320,6 @@
                 UserActivityEdge
             </a>
         </li>
-        <li  title="UserConnection">
-            <a href="userconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                UserConnection
-            </a>
-        </li>
-        <li  title="UserEdge">
-            <a href="useredge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                UserEdge
-            </a>
-        </li>
         <li  title="__Directive">
             <a href="directive.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 __Directive
@@ -365,16 +365,6 @@
                 BookOrder
             </a>
         </li>
-        <li  title="CreateAnswerData">
-            <a href="createanswerdata.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                CreateAnswerData
-            </a>
-        </li>
-        <li  title="CreateHenkenData">
-            <a href="createhenkendata.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                CreateHenkenData
-            </a>
-        </li>
         <li  title="FollowingOrder">
             <a href="followingorder.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 FollowingOrder
@@ -390,9 +380,19 @@
                 RecommendationOrder
             </a>
         </li>
+        <li  title="UserPostsAnswersFilter">
+            <a href="userpostsanswersfilter.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                UserPostsAnswersFilter
+            </a>
+        </li>
         <li  title="UserPostsHenkensFilter">
             <a href="userpostshenkensfilter.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 UserPostsHenkensFilter
+            </a>
+        </li>
+        <li  title="UserReceivedAnswersFilter">
+            <a href="userreceivedanswersfilter.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                UserReceivedAnswersFilter
             </a>
         </li>
         <li  title="UserReceivedHenkensFilter">
@@ -465,7 +465,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="answerconnection.doc.html" title="AnswerConnection - ">AnswerConnection<em>null</em></a><li><li><a href="author.doc.html" title="Author - ">Author<em>null</em></a><li><li><a href="authorconnection.doc.html" title="AuthorConnection - ">AuthorConnection<em>null</em></a><li><li><a href="bookconnection.doc.html" title="BookConnection - ">BookConnection<em>null</em></a><li><li><a href="bookseriesconnection.doc.html" title="BookSeriesConnection - ">BookSeriesConnection<em>null</em></a><li><li><a href="connection.doc.html" title="Connection - ">Connection<em>null</em></a><li><li><a href="henken.doc.html" title="Henken - ">Henken<em>null</em></a><li><li><a href="henkenconnection.doc.html" title="HenkenConnection - ">HenkenConnection<em>null</em></a><li><li><a href="query.doc.html" title="Query - ">Query<em>null</em></a><li><li><a href="recommendation.doc.html" title="Recommendation - ">Recommendation<em>null</em></a><li><li><a href="recommendationconnection.doc.html" title="RecommendationConnection - ">RecommendationConnection<em>null</em></a><li><li><a href="user.doc.html" title="User - ">User<em>null</em></a><li><li><a href="useractivityconnection.doc.html" title="UserActivityConnection - ">UserActivityConnection<em>null</em></a><li><li><a href="userconnection.doc.html" title="UserConnection - ">UserConnection<em>null</em></a><li></ul>
+        <ul class="require-by"><li><a href="answerconnection.doc.html" title="AnswerConnection - ">AnswerConnection<em>null</em></a><li><li><a href="author.doc.html" title="Author - ">Author<em>null</em></a><li><li><a href="authorconnection.doc.html" title="AuthorConnection - ">AuthorConnection<em>null</em></a><li><li><a href="bookconnection.doc.html" title="BookConnection - ">BookConnection<em>null</em></a><li><li><a href="connection.doc.html" title="Connection - ">Connection<em>null</em></a><li><li><a href="followingconnection.doc.html" title="FollowingConnection - ">FollowingConnection<em>null</em></a><li><li><a href="henkenconnection.doc.html" title="HenkenConnection - ">HenkenConnection<em>null</em></a><li><li><a href="query.doc.html" title="Query - ">Query<em>null</em></a><li><li><a href="recommendation.doc.html" title="Recommendation - ">Recommendation<em>null</em></a><li><li><a href="recommendationconnection.doc.html" title="RecommendationConnection - ">RecommendationConnection<em>null</em></a><li><li><a href="user.doc.html" title="User - ">User<em>null</em></a><li><li><a href="useractivityconnection.doc.html" title="UserActivityConnection - ">UserActivityConnection<em>null</em></a><li></ul>
     </div>
 </section>
 <footer>

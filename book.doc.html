@@ -85,9 +85,9 @@
                 BookOrderField
             </a>
         </li>
-        <li  title="ContentType">
-            <a href="contenttype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                ContentType
+        <li  title="FollowingOrderField">
+            <a href="followingorderfield.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                FollowingOrderField
             </a>
         </li>
         <li  title="HenkenOrderField">
@@ -148,6 +148,16 @@
     </ul>
 </div>
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Unions</h4>
+    <ul>
+        <li  title="ContentUnion">
+            <a href="contentunion.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ContentUnion
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
     <h4 class="slds-text-title--caps slds-p-around--medium">Objects</h4>
     <ul>
         <li  title="Answer">
@@ -200,19 +210,9 @@
                 BookSeries
             </a>
         </li>
-        <li  title="BookSeriesConnection">
-            <a href="bookseriesconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                BookSeriesConnection
-            </a>
-        </li>
         <li  title="BookSeriesEdge">
             <a href="bookseriesedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 BookSeriesEdge
-            </a>
-        </li>
-        <li  title="CreateAnswerPayload">
-            <a href="createanswerpayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                CreateAnswerPayload
             </a>
         </li>
         <li  title="CreateHenkenPayload">
@@ -223,11 +223,6 @@
         <li  title="FindAnswerPayload">
             <a href="findanswerpayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 FindAnswerPayload
-            </a>
-        </li>
-        <li  title="FindAuthorPayload">
-            <a href="findauthorpayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                FindAuthorPayload
             </a>
         </li>
         <li  title="FindBookPayload">
@@ -253,6 +248,21 @@
         <li  title="FindUserPayload">
             <a href="finduserpayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 FindUserPayload
+            </a>
+        </li>
+        <li  title="Following">
+            <a href="following.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Following
+            </a>
+        </li>
+        <li  title="FollowingConnection">
+            <a href="followingconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                FollowingConnection
+            </a>
+        </li>
+        <li  title="FollowingEdge">
+            <a href="followingedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                FollowingEdge
             </a>
         </li>
         <li  title="Henken">
@@ -310,16 +320,6 @@
                 UserActivityEdge
             </a>
         </li>
-        <li  title="UserConnection">
-            <a href="userconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                UserConnection
-            </a>
-        </li>
-        <li  title="UserEdge">
-            <a href="useredge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                UserEdge
-            </a>
-        </li>
         <li  title="__Directive">
             <a href="directive.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 __Directive
@@ -365,16 +365,6 @@
                 BookOrder
             </a>
         </li>
-        <li  title="CreateAnswerData">
-            <a href="createanswerdata.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                CreateAnswerData
-            </a>
-        </li>
-        <li  title="CreateHenkenData">
-            <a href="createhenkendata.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                CreateHenkenData
-            </a>
-        </li>
         <li  title="FollowingOrder">
             <a href="followingorder.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 FollowingOrder
@@ -390,9 +380,19 @@
                 RecommendationOrder
             </a>
         </li>
+        <li  title="UserPostsAnswersFilter">
+            <a href="userpostsanswersfilter.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                UserPostsAnswersFilter
+            </a>
+        </li>
         <li  title="UserPostsHenkensFilter">
             <a href="userpostshenkensfilter.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 UserPostsHenkensFilter
+            </a>
+        </li>
+        <li  title="UserReceivedAnswersFilter">
+            <a href="userreceivedanswersfilter.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                UserReceivedAnswersFilter
             </a>
         </li>
         <li  title="UserReceivedHenkensFilter">
@@ -453,7 +453,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Book</span> <span class="keyword operator ts">implements</span> <a class="support type" href="content.doc.html">Content</a>, <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">authors</span>: [<a class="support type" href="author.doc.html">Author</a>!]! </span></li><li></li><li><span class="tab"><span class="meta">cover</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">isbn</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">title</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Book</span> <span class="keyword operator ts">implements</span> <a class="support type" href="content.doc.html">Content</a>, <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">cover</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">isbn</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">title</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -464,7 +464,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="bookedge.doc.html" title="BookEdge - ">BookEdge<em>null</em></a><li><li><a href="findbookpayload.doc.html" title="FindBookPayload - ">FindBookPayload<em>null</em></a><li><li><a href="query.doc.html" title="Query - ">Query<em>null</em></a><li></ul>
+        <ul class="require-by"><li><a href="bookedge.doc.html" title="BookEdge - ">BookEdge<em>null</em></a><li><li><a href="contentunion.doc.html" title="ContentUnion - ">ContentUnion<em>null</em></a><li><li><a href="findbookpayload.doc.html" title="FindBookPayload - ">FindBookPayload<em>null</em></a><li><li><a href="query.doc.html" title="Query - ">Query<em>null</em></a><li></ul>
     </div>
 </section>
 <footer>
