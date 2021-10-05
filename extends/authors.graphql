@@ -9,6 +9,10 @@ type Author implements Node {
   id: ID!
   name: String!
 }
+type AuthorEdge implements Edge {
+  cursor: String!
+  node: Author!
+}
 
 type AuthorConnection implements Connection {
   edges: [AuthorEdge!]!
@@ -16,11 +20,22 @@ type AuthorConnection implements Connection {
   totalCount: Int!
 }
 
-type AuthorEdge implements Edge {
-  cursor: String!
-  node: Author!
+enum AuthorOrderField {
+  TITLE
+  CREATED_AT
+}
+
+input AuthorOrder {
+  field: BookOrderField!
+  order: OrderDirection!
 }
 
 extend type Query {
-  manyAuthors(limit: Int!): [Author!]!
+  manyAuthors(
+    after: String
+    before: String
+    first: Int
+    last: Int
+    orderBy: AuthorOrder!
+  ): AuthorConnection!
 }

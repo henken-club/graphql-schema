@@ -16,15 +16,22 @@ type BookConnection implements Connection {
   totalCount: Int!
 }
 
+enum BookOrderField {
+  TITLE
+  CREATED_AT
+}
+
 input BookOrder {
   field: BookOrderField!
   order: OrderDirection!
 }
 
-enum BookOrderField {
-  TITLE
-}
-
 extend type Query {
-  manyBooks(limit: Int!): [Book!]!
+  manyBooks(
+    after: String
+    before: String
+    first: Int
+    last: Int
+    orderBy: BookOrder!
+  ): BookConnection!
 }

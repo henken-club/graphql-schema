@@ -50,6 +50,16 @@ type AuthorEdge implements Edge {
   node: Author!
 }
 
+input AuthorOrder {
+  field: BookOrderField!
+  order: OrderDirection!
+}
+
+enum AuthorOrderField {
+  CREATED_AT
+  TITLE
+}
+
 type Book implements Content & Node {
   cover: String
   id: ID!
@@ -74,6 +84,7 @@ input BookOrder {
 }
 
 enum BookOrderField {
+  CREATED_AT
   TITLE
 }
 
@@ -82,9 +93,25 @@ type BookSeries implements Content & Node {
   title: String!
 }
 
+type BookSeriesConnection implements Connection {
+  edges: [BookSeriesEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
 type BookSeriesEdge implements Edge {
   cursor: String!
   node: BookSeries!
+}
+
+input BookSeriesOrder {
+  field: BookOrderField!
+  order: OrderDirection!
+}
+
+enum BookSeriesOrderField {
+  CREATED_AT
+  TITLE
 }
 
 interface Connection {
@@ -226,13 +253,13 @@ type Query {
   findRecommendation(id: ID!): FindRecommendationPayload!
   findUser(alias: String, id: ID): FindUserPayload!
   henken(id: ID!): Henken!
-  manyAnswers(limit: Int!): [Answer!]!
-  manyAuthors(limit: Int!): [Author!]!
-  manyBookSeries(limit: Int!): [BookSeries!]!
-  manyBooks(limit: Int!): [Book!]!
-  manyHenkens(limit: Int!): [Henken!]!
-  manyRecommendations(limit: Int!): [Recommendation!]!
-  manyUsers(limit: Int!): [User!]!
+  manyAnswers(after: String, before: String, first: Int, last: Int, orderBy: AnswerOrder!): AnswerConnection!
+  manyAuthors(after: String, before: String, first: Int, last: Int, orderBy: AuthorOrder!): AuthorConnection!
+  manyBookSeries(after: String, before: String, first: Int, last: Int, orderBy: BookSeriesOrder!): BookSeriesConnection!
+  manyBooks(after: String, before: String, first: Int, last: Int, orderBy: BookOrder!): BookConnection!
+  manyHenkens(after: String, before: String, first: Int, last: Int, orderBy: HenkenOrder!): HenkenConnection!
+  manyRecommendations(after: String, before: String, first: Int, last: Int, orderBy: RecommendationOrder!): RecommendationConnection!
+  manyUsers(after: String, before: String, first: Int, last: Int, orderBy: UserOrder!): UserConnection!
   recommendation(id: ID!): Recommendation!
   user(id: ID!): User!
 
@@ -301,6 +328,26 @@ type UserActivityEdge implements Edge {
 interface UserActivityEvent {
   id: ID!
   timestamp: DateTime!
+}
+
+type UserConnection implements Connection {
+  edges: [UserEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type UserEdge implements Edge {
+  cursor: String!
+  node: User!
+}
+
+input UserOrder {
+  field: BookOrderField!
+  order: OrderDirection!
+}
+
+enum UserOrderField {
+  CREATED_AT
 }
 
 input UserPostsAnswersFilter {
