@@ -4,6 +4,32 @@ extend type User {
   avatar: String!
 }
 
+type UserEdge implements Edge {
+  cursor: String!
+  node: User!
+}
+
+type UserConnection implements Connection {
+  edges: [UserEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+enum UserOrderField {
+  CREATED_AT
+}
+
+input UserOrder {
+  field: BookOrderField!
+  order: OrderDirection!
+}
+
 extend type Query {
-  manyUsers(limit: Int!): [User!]!
+  manyUsers(
+    after: String
+    before: String
+    first: Int
+    last: Int
+    orderBy: UserOrder!
+  ): UserConnection!
 }

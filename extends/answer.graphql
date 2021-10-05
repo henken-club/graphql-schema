@@ -1,3 +1,9 @@
 extend type Query {
-  manyAnswers(limit: Int!): [Answer!]!
+  manyAnswers(
+    after: String
+    before: String
+    first: Int
+    last: Int
+    orderBy: AnswerOrder!
+  ): AnswerConnection!
 }
