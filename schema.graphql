@@ -1,9 +1,10 @@
-type Answer implements Node & UserActivityEvent {
-  answerTo: Henken!
+type Answer implements Node {
   comment: String!
   createdAt: DateTime!
+  henken: Henken!
   id: ID!
   type: AnswerType!
+  updatedAt: DateTime!
 }
 
 type AnswerConnection implements Connection {
@@ -13,13 +14,13 @@ type AnswerConnection implements Connection {
 }
 
 type AnswerEdge implements Edge {
-  edge: String!
+  cursor: String!
   node: Answer!
 }
 
 input AnswerOrder {
+  direction: OrderDirection!
   field: AnswerOrderField!
-  order: OrderDirection!
 }
 
 enum AnswerOrderField {
@@ -33,7 +34,7 @@ enum AnswerType {
 }
 
 type Author implements Node {
-  books(after: String, before: String, first: Int, last: Int, order: BookOrder = {field: TITLE, order: ASC}): BookConnection!
+  books(after: String, before: String, first: Int, last: Int, order: BookOrder!): BookConnection!
   id: ID!
   name: String!
 }
@@ -45,12 +46,11 @@ type AuthorConnection implements Connection {
 }
 
 type AuthorEdge implements Edge {
-  edge: String!
+  cursor: String!
   node: Author!
 }
 
 type Book implements Content & Node {
-  authors: [Author!]!
   cover: String
   id: ID!
   isbn: String
@@ -64,7 +64,7 @@ type BookConnection implements Connection {
 }
 
 type BookEdge implements Edge {
-  edge: String!
+  cursor: String!
   node: Book!
 }
 
@@ -78,19 +78,12 @@ enum BookOrderField {
 }
 
 type BookSeries implements Content & Node {
-  books: BookConnection!
   id: ID!
   title: String!
 }
 
-type BookSeriesConnection implements Connection {
-  edges: [BookSeriesEdge!]!
-  pageInfo: PageInfo!
-  totalCount: Int!
-}
-
 type BookSeriesEdge implements Edge {
-  edge: String!
+  cursor: String!
   node: BookSeries!
 }
 
@@ -104,41 +97,24 @@ interface Content {
   id: ID!
 }
 
-enum ContentType {
-  BOOK
-  BOOK_SERIES
-}
-
-input CreateAnswerData {
-  comment: String!
-  type: AnswerType!
-}
-
-type CreateAnswerPayload {
-  answer: Answer!
-}
-
-input CreateHenkenData {
-  comment: String
-}
+union ContentUnion = Book | BookSeries
 
 type CreateHenkenPayload {
   henken: Henken!
 }
 
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
 scalar DateTime
 
 interface Edge {
-  edge: String!
+  cursor: String!
   node: Node!
 }
 
 type FindAnswerPayload {
   answer: Answer
-}
-
-type FindAuthorPayload {
-  author: Author
 }
 
 type FindBookPayload {
@@ -161,15 +137,36 @@ type FindUserPayload {
   user: User
 }
 
-input FollowingOrder {
-  order: OrderDirection!
+type Following implements Node {
+  from: User!
+  id: ID!
+  to: User!
 }
 
-type Henken implements Node & UserActivityEvent {
+type FollowingConnection implements Connection {
+  edges: [FollowingEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type FollowingEdge implements Edge {
+  cursor: String!
+  node: Following!
+}
+
+input FollowingOrder {
+  direction: OrderDirection!
+  field: FollowingOrderField!
+}
+
+enum FollowingOrderField {
+  CREATED_AT
+}
+
+type Henken implements Node {
   answer: Answer
   comment: String!
-  content: Content!
-  count: Int!
+  content: ContentUnion!
   createdAt: DateTime!
   id: ID!
   postedBy: User!
@@ -184,13 +181,13 @@ type HenkenConnection implements Connection {
 }
 
 type HenkenEdge implements Edge {
-  edge: String!
+  cursor: String!
   node: Henken!
 }
 
 input HenkenOrder {
+  direction: OrderDirection!
   field: HenkenOrderField!
-  order: OrderDirection!
 }
 
 enum HenkenOrderField {
@@ -199,8 +196,7 @@ enum HenkenOrderField {
 }
 
 type Mutation {
-  createAnswer(answerTo: ID!, data: CreateAnswerData!): CreateAnswerPayload!
-  createHenken(contentId: ID!, contentType: ContentType!, data: CreateHenkenData!, postsTo: ID!): CreateHenkenPayload!
+  createHenken(comment: String = "", content: ID!, to: ID!): CreateHenkenPayload!
 }
 
 interface Node {
@@ -221,11 +217,9 @@ type PageInfo {
 
 type Query {
   answer(id: ID!): Answer!
-  author(id: ID!): Author!
   book(id: ID!): Book!
   bookSeries(id: ID!): BookSeries!
   findAnswer(id: ID!): FindAnswerPayload!
-  findAuthor(id: ID!): FindAuthorPayload!
   findBook(id: ID!): FindBookPayload!
   findBookSeries(id: ID!): FindBookSeriesPayload!
   findHenken(id: ID!): FindHenkenPayload!
@@ -241,6 +235,8 @@ type Query {
   manyUsers(limit: Int!): [User!]!
   recommendation(id: ID!): Recommendation!
   user(id: ID!): User!
+
+  """Return current user. Return `null` if user not registered"""
   viewer: User
 }
 
@@ -259,7 +255,7 @@ type RecommendationConnection implements Connection {
 }
 
 type RecommendationEdge implements Edge {
-  edge: String!
+  cursor: String!
   node: Recommendation!
 }
 
@@ -277,14 +273,13 @@ type User implements Node {
   alias: String!
   avatar: String!
   displayName: String!
-  followees(after: String, before: String, first: Int, last: Int, order: FollowingOrder = {order: DESC}): UserConnection!
-  followers(after: String, before: String, first: Int, last: Int, order: FollowingOrder = {order: DESC}): UserConnection!
+  followees(after: String, before: String, first: Int, last: Int, orderBy: FollowingOrder!): FollowingConnection!
+  followers(after: String, before: String, first: Int, last: Int, orderBy: FollowingOrder!): FollowingConnection!
   id: ID!
-  postsAnswers(after: String, before: String, first: Int, last: Int, order: AnswerOrder! = {field: CREATED_AT, order: DESC}): AnswerConnection!
-  postsHenkens(after: String, before: String, filter: UserPostsHenkensFilter, first: Int, last: Int, order: HenkenOrder! = {field: CREATED_AT, order: DESC}): HenkenConnection!
-  receivedAnswers(after: String, before: String, first: Int, last: Int, order: AnswerOrder! = {field: CREATED_AT, order: DESC}): AnswerConnection!
-  receivedHenkens(after: String, before: String, filter: UserReceivedHenkensFilter, first: Int, last: Int, order: HenkenOrder! = {field: CREATED_AT, order: DESC}): HenkenConnection!
-  recommendations(after: String, before: String, first: Int, last: Int, order: RecommendationOrder = {field: SCORE, order: DESC}): RecommendationConnection!
+  postsAnswers(after: String, before: String, filter: UserPostsAnswersFilter, first: Int, last: Int, orderBy: AnswerOrder!): AnswerConnection!
+  postsHenkens(after: String, before: String, filter: UserPostsHenkensFilter, first: Int, last: Int, orderBy: HenkenOrder!): HenkenConnection!
+  receivedAnswers(after: String, before: String, filter: UserReceivedAnswersFilter, first: Int, last: Int, orderBy: AnswerOrder!): AnswerConnection!
+  receivedHenkens(after: String, before: String, filter: UserReceivedHenkensFilter, first: Int, last: Int, orderBy: HenkenOrder!): HenkenConnection!
 }
 
 type UserActivity implements Node {
@@ -299,27 +294,24 @@ type UserActivityConnection implements Connection {
 }
 
 type UserActivityEdge implements Edge {
-  edge: String!
+  cursor: String!
   node: UserActivity!
 }
 
 interface UserActivityEvent {
-  createdAt: DateTime!
   id: ID!
+  timestamp: DateTime!
 }
 
-type UserConnection implements Connection {
-  edges: [UserEdge!]!
-  pageInfo: PageInfo!
-  totalCount: Int!
-}
-
-type UserEdge implements Edge {
-  edge: String!
-  node: User!
+input UserPostsAnswersFilter {
+  from: ID!
 }
 
 input UserPostsHenkensFilter {
+  to: ID!
+}
+
+input UserReceivedAnswersFilter {
   to: ID!
 }
 

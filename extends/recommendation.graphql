@@ -10,7 +10,7 @@ type Recommendation implements Node {
 }
 
 type RecommendationEdge implements Edge {
-  edge: String!
+  cursor: String!
   node: Recommendation!
 }
 

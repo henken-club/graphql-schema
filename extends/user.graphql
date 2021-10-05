@@ -1,0 +1,9 @@
+extend type User {
+  alias: String!
+  displayName: String!
+  avatar: String!
+}
+
+extend type Query {
+  manyUsers(limit: Int!): [User!]!
+}

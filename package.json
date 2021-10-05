@@ -2,7 +2,7 @@
   "name": "@henken.club/graphql-schema",
   "private": true,
   "scripts": {
-    "codegen": "gql-gen",
+    "schema-generate": "gql-gen",
     "docs": "run-s -clns docs:clean docs:build",
     "docs:clean": "rimraf docs",
     "docs:build": "graphdoc -s ./schema.graphql -o docs",

@@ -1,0 +1,26 @@
+type Author implements Node {
+  books(
+    after: String
+    before: String
+    first: Int
+    last: Int
+    order: BookOrder!
+  ): BookConnection!
+  id: ID!
+  name: String!
+}
+
+type AuthorConnection implements Connection {
+  edges: [AuthorEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type AuthorEdge implements Edge {
+  cursor: String!
+  node: Author!
+}
+
+extend type Query {
+  manyAuthors(limit: Int!): [Author!]!
+}
