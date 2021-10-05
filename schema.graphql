@@ -235,7 +235,9 @@ type Query {
   manyUsers(limit: Int!): [User!]!
   recommendation(id: ID!): Recommendation!
   user(id: ID!): User!
-  viewer: User!
+
+  """Return current user. Return `null` if user not registered"""
+  viewer: User
 }
 
 type Recommendation implements Node {
