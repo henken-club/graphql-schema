@@ -6,6 +6,5 @@ type Author implements Node {
     last: Int
     order: BookOrder!
   ): BookConnection!
-  id: ID!
   name: String!
 }
