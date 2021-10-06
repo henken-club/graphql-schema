@@ -1,34 +1,3 @@
 extend type BookSeries {
   title: String!
 }
-
-type BookSeriesEdge implements Edge {
-  cursor: String!
-  node: BookSeries!
-}
-
-type BookSeriesConnection implements Connection {
-  edges: [BookSeriesEdge!]!
-  pageInfo: PageInfo!
-  totalCount: Int!
-}
-
-enum BookSeriesOrderField {
-  TITLE
-  CREATED_AT
-}
-
-input BookSeriesOrder {
-  field: BookOrderField!
-  order: OrderDirection!
-}
-
-extend type Query {
-  manyBookSeries(
-    after: String
-    before: String
-    first: Int
-    last: Int
-    orderBy: BookSeriesOrder!
-  ): BookSeriesConnection!
-}

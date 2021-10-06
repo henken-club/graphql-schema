@@ -1,9 +1,0 @@
-extend type Query {
-  manyHenkens(
-    after: String
-    before: String
-    first: Int
-    last: Int
-    orderBy: HenkenOrder!
-  ): HenkenConnection!
-}

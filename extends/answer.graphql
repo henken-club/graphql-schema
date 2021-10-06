@@ -1,9 +1,0 @@
-extend type Query {
-  manyAnswers(
-    after: String
-    before: String
-    first: Int
-    last: Int
-    orderBy: AnswerOrder!
-  ): AnswerConnection!
-}

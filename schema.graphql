@@ -33,7 +33,7 @@ enum AnswerType {
   WRONG
 }
 
-type Author implements Node {
+type Author implements Content & Node {
   books(after: String, before: String, first: Int, last: Int, order: BookOrder!): BookConnection!
   id: ID!
   name: String!
@@ -51,13 +51,12 @@ type AuthorEdge implements Edge {
 }
 
 input AuthorOrder {
-  field: BookOrderField!
-  order: OrderDirection!
+  direction: OrderDirection!
+  field: AuthorOrderField!
 }
 
 enum AuthorOrderField {
-  CREATED_AT
-  TITLE
+  LINKED_HENKENS
 }
 
 type Book implements Content & Node {
@@ -79,13 +78,12 @@ type BookEdge implements Edge {
 }
 
 input BookOrder {
+  direction: OrderDirection!
   field: BookOrderField!
-  order: OrderDirection!
 }
 
 enum BookOrderField {
-  CREATED_AT
-  TITLE
+  LINKED_HENKENS
 }
 
 type BookSeries implements Content & Node {
@@ -105,13 +103,12 @@ type BookSeriesEdge implements Edge {
 }
 
 input BookSeriesOrder {
-  field: BookOrderField!
-  order: OrderDirection!
+  direction: OrderDirection!
+  field: BookSeriesOrderField!
 }
 
 enum BookSeriesOrderField {
-  CREATED_AT
-  TITLE
+  LINKED_HENKENS
 }
 
 interface Connection {
@@ -142,6 +139,10 @@ interface Edge {
 
 type FindAnswerPayload {
   answer: Answer
+}
+
+type FindAuthorPayload {
+  author: Author
 }
 
 type FindBookPayload {
@@ -244,9 +245,11 @@ type PageInfo {
 
 type Query {
   answer(id: ID!): Answer!
+  author(id: ID!): Author!
   book(id: ID!): Book!
   bookSeries(id: ID!): BookSeries!
   findAnswer(id: ID!): FindAnswerPayload!
+  findAuthor(id: ID!): FindAuthorPayload!
   findBook(id: ID!): FindBookPayload!
   findBookSeries(id: ID!): FindBookSeriesPayload!
   findHenken(id: ID!): FindHenkenPayload!
@@ -342,8 +345,8 @@ type UserEdge implements Edge {
 }
 
 input UserOrder {
-  field: BookOrderField!
-  order: OrderDirection!
+  direction: OrderDirection!
+  field: UserOrderField!
 }
 
 enum UserOrderField {
