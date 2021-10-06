@@ -6,36 +6,5 @@ type Author implements Node {
     last: Int
     order: BookOrder!
   ): BookConnection!
-  id: ID!
   name: String!
-}
-type AuthorEdge implements Edge {
-  cursor: String!
-  node: Author!
-}
-
-type AuthorConnection implements Connection {
-  edges: [AuthorEdge!]!
-  pageInfo: PageInfo!
-  totalCount: Int!
-}
-
-enum AuthorOrderField {
-  TITLE
-  CREATED_AT
-}
-
-input AuthorOrder {
-  field: BookOrderField!
-  order: OrderDirection!
-}
-
-extend type Query {
-  manyAuthors(
-    after: String
-    before: String
-    first: Int
-    last: Int
-    orderBy: AuthorOrder!
-  ): AuthorConnection!
 }

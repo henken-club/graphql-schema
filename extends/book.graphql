@@ -3,35 +3,6 @@ extend type Book {
 
   isbn: String
   cover: String
-}
 
-type BookEdge implements Edge {
-  cursor: String!
-  node: Book!
-}
-
-type BookConnection implements Connection {
-  edges: [BookEdge!]!
-  pageInfo: PageInfo!
-  totalCount: Int!
-}
-
-enum BookOrderField {
-  TITLE
-  CREATED_AT
-}
-
-input BookOrder {
-  field: BookOrderField!
-  order: OrderDirection!
-}
-
-extend type Query {
-  manyBooks(
-    after: String
-    before: String
-    first: Int
-    last: Int
-    orderBy: BookOrder!
-  ): BookConnection!
+  authors: [Author!]!
 }
