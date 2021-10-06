@@ -60,6 +60,7 @@ enum AuthorOrderField {
 }
 
 type Book implements Content & Node {
+  authors: [Author!]!
   cover: String
   id: ID!
   isbn: String
@@ -121,7 +122,7 @@ interface Content {
   id: ID!
 }
 
-union ContentUnion = Book | BookSeries
+union ContentUnion = Author | Book | BookSeries
 
 type CreateHenkenPayload {
   henken: Henken!
